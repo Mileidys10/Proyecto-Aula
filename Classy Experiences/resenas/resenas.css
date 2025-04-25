@@ -1,0 +1,315 @@
+* {
+
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    font-family: 'roboto', sans-serif;
+    margin: 0px;
+
+}
+
+
+h1 {
+    font-size: 3.5em;
+}
+
+h2 {
+    font-size: 2.7em;
+}
+
+h3 {
+    font-size: 2em;
+}
+
+p {
+    font-size: 1.25em;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    font-size: 1.25em;
+}
+
+.color-acento {
+    color: #E2C29B;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    font-size: 1.7em;
+    font-weight: bold;
+    padding: 15px 30px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.5);
+    color: white;
+    background-color: #A65B4B;
+}
+
+button:hover {
+    background-color: #552f27;
+    scale: 1.1;
+    transition-duration: 0.7s;
+
+}
+
+.container {
+
+    max-width: 1400px;
+    margin: auto;
+
+}
+
+header {
+    
+    width: 100%;
+    min-height: 70px;
+    display: flex;
+    background-color: #E2C29B;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+
+    
+
+
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+    padding-left: 0px 10px 0px 10px;
+    color: white
+}
+header {
+    
+    width: 100%;
+    min-height: 70px;
+    display: flex;
+    background-color: #E2C29B;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+
+    
+
+
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+    padding-left: 0px 10px 0px 10px;
+    color: white
+}
+
+.logo img {
+    height: 70px;
+    margin-right: 0px;
+}
+
+nav {
+    display: flex;
+    gap: 15px;
+    
+}
+
+nav a {
+    font-weight: 600;
+    padding: 10px;
+    color: #A65B4B;
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+    display: inline-block;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+nav a:hover {
+    color: #552f27;
+    transform: scale(1.3);
+}
+
+
+
+
+@media (max-width:700px) {
+    header {
+        flex-direction: column;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+
+    }
+
+    nav {
+
+        padding: 10px 0;
+    }
+
+}
+
+.inicio {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #ffe7ca;
+}
+
+.inicio h1 {
+    font-size: 2.5em;
+    color: #A65B4B;
+}
+
+.inicio p {
+    font-size: 1.2em;
+    margin-top: 10px;
+    color: #333;
+}
+
+
+.reseñar-boton {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.reseñar-boton a {
+    display: inline-block;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: white;
+    background-color: #A65B4B;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.2s ease;
+}
+
+.reseñar-boton a:hover {
+    background-color: #552f27;
+    transform: scale(1.1);
+}
+
+
+.contenido {
+    max-width: 800px;
+    margin: 10px auto;
+    padding: 20px;
+    background-color: #d19d91;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.resena {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.resena:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.resena-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.resena-header img.avatar {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.resena-header div {
+    flex-grow: 1;
+}
+
+.resena-header h3 {
+    font-size: 1.5em;
+    color: #552f27;
+    margin: 0;
+}
+
+.resena-header .fecha {
+    font-size: 0.9em;
+    color: #999;
+}
+
+.estrellas {
+    color: #FFD700; 
+    font-size: 2.0em;
+    text-align: right;
+}
+
+.comentario {
+    font-size: 1.1em;
+    color: #333;
+    line-height: 1.5;
+    margin: 0;
+    margin-top: 10px;
+}
+
+
+footer {
+    background-color: #141414;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+footer p {
+    font-size: 0.9em;
+}
+
+
+@media (max-width: 700px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .inicio h1 {
+        font-size: 2em;
+    }
+
+    .contenido {
+        padding: 10px;
+    }
+
+    .reseñar-boton a {
+        font-size: 1em;
+        padding: 8px 16px;
+    }
+}
