@@ -1,7 +1,7 @@
 <?php
-$conn= mysqli_connect("localhost","root","","login_db");
-if(!($conn)){
-    echo "conexión no establecida";
-}
+$conn = mysqli_connect("localhost:3307", "root", "", "classy");
 
+if (!$conn) {
+    die("Error de conexión: " . mysqli_connect_error());
+}
 ?>
