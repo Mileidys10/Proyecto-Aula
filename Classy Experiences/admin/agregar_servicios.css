@@ -1,0 +1,129 @@
+/* Contenedor general */
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #A65B4B;
+    color: white;
+    padding: 20px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.sidebar h2 {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+    border-radius: 2px;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+    background-color: #552f27;
+    
+}
+
+/* Main content */
+.main-content {
+    margin-left: 250px;
+    padding: 40px;
+    width: 100%;
+    overflow: auto;
+}
+
+.agregar-servicio-section {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.agregar-servicio-section h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.agregar-servicio-form {
+    display: grid;
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.agregar-servicio-form label {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.agregar-servicio-form input,
+.agregar-servicio-form textarea,
+.agregar-servicio-form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.agregar-servicio-form button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.agregar-servicio-form button:hover {
+    background-color: #2980b9;
+}
+
+.mensaje {
+    background-color: #eafaf1;
+    color: #27ae60;
+    padding: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 16px;
+}
+
+/* Estilo para el sidebar cuando se está en modo móvil */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .dashboard-container {
+        flex-direction: column;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+}
