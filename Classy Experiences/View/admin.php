@@ -1,14 +1,10 @@
 <?php
-session_start();
+require_once '../Controller/AdminController.php';
 
-// Verifica si hay sesión activa
-if (!isset($_SESSION['admin_id'])) {
-    header('Location: ../login/login.php');
-    exit();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
 }
-
-// Si todo está bien, recupera el nombre
-$admin_nombre = $_SESSION['admin_nombre']; 
+$usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +14,7 @@ $admin_nombre = $_SESSION['admin_nombre'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de Administración</title>
-    <link rel="stylesheet" href="dashboard.css"> 
+    <link rel="stylesheet" href="../Css/dashboard.css"> 
 </head>
 
 <body>
@@ -26,7 +22,7 @@ $admin_nombre = $_SESSION['admin_nombre'];
     <!-- Header -->
     <header>
         <div class="logo">
-            <img src="../img/classy.png" alt="Logo"> 
+            <img src="../Media/classy.png" alt="Logo"> 
             <span>Panel de Administración</span>
         </div>
         <nav>
@@ -34,7 +30,9 @@ $admin_nombre = $_SESSION['admin_nombre'];
             <a href="agregar_servicio.php">Agregar Servicio</a>
             <a href="estadisticas.php">Estadísticas</a>
             <a href="reservas.php">Reservas</a>
-            <a href="logout.php">Cerrar Sesión</a>
+            <?php if ($usuarioActivo): ?>
+    <a href="../Controller/LogoutController.php">Cerrar sesión</a>
+<?php endif; ?>
         </nav>
     </header>
 
@@ -87,7 +85,7 @@ $admin_nombre = $_SESSION['admin_nombre'];
     <!-- Footer -->
     <footer>
         <div class="container">
-            <img src="../img/classy.png" alt="Pie de página">
+            <img src="../Media/classy.png" alt="Pie de página">
         </div>
     </footer>
 

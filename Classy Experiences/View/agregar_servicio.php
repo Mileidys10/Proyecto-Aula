@@ -1,26 +1,21 @@
 <?php
-include("../login/conexion.php");
+require_once '../Controller/AdminController.php';
 
-$mensaje = "";
+$msg = $_GET['msg'] ?? '';
 
-if (isset($_POST['guardar'])) {
-    $nombre = mysqli_real_escape_string($conn, $_POST['nombre']);
-    $descripcion = mysqli_real_escape_string($conn, $_POST['descripcion']);
-    $precio = floatval($_POST['precio']);
-    $categoria = mysqli_real_escape_string($conn, $_POST['categoria']);
-
-    if ($nombre && $descripcion && $precio && $categoria> 0) {
-        $sql = "INSERT INTO servicios (nombre_servicio, descripcion, precio, categoria) VALUES ('$nombre', '$descripcion', '$precio', '$categoria')";
-        if (mysqli_query($conn, $sql)) {
-            $mensaje = "✅ Servicio agregado exitosamente.";
-        } else {
-            $mensaje = "❌ Error al guardar: " . mysqli_error($conn);
-        }
-    } else {
-        $mensaje = "❌ Todos los campos son obligatorios y el precio debe ser mayor a 0.";
-    }
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
 }
+$usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
+
 ?>
+
+
+
+
+
+
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -41,7 +36,7 @@ if (isset($_POST['guardar'])) {
             <ul>
                 <li><a href="admin.php">Inicio</a></li>
                 <li><a href="agregar_servicio.php" class="active">Agregar Servicio</a></li>
-                <li><a href="logout.php">Cerrar sesión</a></li>
+                <li><a href="../Controller/LogoutController.php">Cerrar sesión</a></li>
             </ul>
         </aside>
 

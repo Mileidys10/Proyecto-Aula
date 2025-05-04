@@ -1,10 +1,16 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+$usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redes Sociales - Classy Experiences</title>
-    <link rel="stylesheet" href="redes.css">
+    <link rel="stylesheet" href="../Css/redes.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css"
     integrity="sha512-9xKTRVabjVeZmc+GUW8GgSmcREDunMM+Dt/GrzchfN8tkwHizc5RP4Ok/MXFFy5rIjJjzhndFScTceq5e6GvVQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -12,18 +18,22 @@
 <body>
     
     <header>
-        <a class="logo" href="../index.php">
-            <img src="../img/classy.png" alt="logo">
+        <a class="logo" href="../View/index.php">
+            <img src=".../Media/classy.png" alt="logo">
             <h2 class="nombredelaempresa">Classy</h2>
         </a>
     
         <nav>
-            <a href="../index.php">Home</a>
-            <a href="../servicios/servicios.html">Servicios</a>
-            <a href="../conocenos\conocenos.html">Conócenos</a>
-            <a href="redes.html">Redes Sociales</a>
-            <a href="../resenas/resenas.php">Reseñas</a>
-        </nav>
+            <a href="../View/index.php">Home</a>
+            <a href="../View/login.php">Iniciar Sesion</a>
+            <a href="../View/servicios.html">Servicios</a>
+            <a href="../View/conocenos.html">Conócenos</a>
+            <a href="../View/redes.html">Redes Sociales</a>
+            <a href="../View/resenas.php">Reseñas</a>
+            <?php if ($usuarioActivo): ?>
+            <a href="../Controller/LogoutController.php">Cerrar sesión</a>
+        <?php endif; ?>
+            </nav>
     </header>
 
 
@@ -32,7 +42,7 @@
    <a href="https://www.instagram.com/classyexperiences/" target="_blank"><div class="carta-red">
    
     <h1 class="itemname"><i class="fa-brands fa-instagram"></i> Instagram</h1>
-        <img src="ig.png" alt="" class="ssred">
+        <img src="../Media/ig.png" alt="" class="ssred">
     </a> 
     
 </div>
@@ -41,7 +51,7 @@
     
     <h1 class="itemname">    <i
         class="fa-brands fa-facebook"></i>Facebook</h1>
-    <img src="fb.png" alt="" class="ssred">
+    <img src="../Media/fb.png" alt="" class="ssred">
 </a> 
 
 </div>
@@ -50,7 +60,7 @@
 <a href="https://walink.co/fd477e" target="_blank"><div class="carta-red">
     
     <h1 class="itemname"><i class="fa-brands fa-whatsapp"></i>Whatsapp</h1>
-    <img src="wtt.png" alt="" class="ssred">
+    <img src="../Media/wtt.png" alt="" class="ssred">
 </a> 
 
 </div>
