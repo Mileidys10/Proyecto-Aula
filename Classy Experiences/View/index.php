@@ -1,10 +1,18 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+$usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <title>Classy Experiences</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="../Css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css"
         integrity="sha512-9xKTRVabjVeZmc+GUW8GgSmcREDunMM+Dt/GrzchfN8tkwHizc5RP4Ok/MXFFy5rIjJjzhndFScTceq5e6GvVQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -13,17 +21,21 @@
 <body>
 
     <header>
-        <a class="logo" href="../Classy Experiences/index.php">
-            <img src="img/classy.png" alt="logo">
+        <a class="logo" href="../View/index.php">
+            <img src="../Media/classy.png" alt="logo">
             <h2 class="nombredelaempresa">Classy</h2>
         </a>
     
         <nav>
-            <a href="index.php">Home</a>
-            <a href="servicios/servicios.html">Servicios</a>
-            <a href="conocenos\conocenos.html">Conócenos</a>
-            <a href="redes\redes.html">Redes Sociales</a>
-            <a href="resenas/resenas.php">Reseñas</a>
+            <a href="../View/index.php">Home</a>
+            <a href="../View/login.php">Iniciar Sesion</a>
+            <a href="../View/servicios.html">Servicios</a>
+            <a href="../View/conocenos.html">Conócenos</a>
+            <a href="../View/redes.html">Redes Sociales</a>
+            <a href="../View/resenas.php">Reseñas</a>
+            <?php if ($usuarioActivo): ?>
+    <a href="../Controller/LogoutController.php">Cerrar sesión</a>
+<?php endif; ?>
         </nav>
     </header>
     
@@ -61,7 +73,7 @@
                 <div class="cartas">
                     <h3>Embarcaciones</h3>
                     <p>Navega en catamarán por el Caribe. Disfruta de cócteles, música y paisajes paradisíacos.</p>
-               <a href="servicios/servicios.html#embarcaciones"><button>+ info</button></a>
+               <a href="../View/servicios.html#embarcaciones"><button>+ info</button></a>
                 </div>
                 <div class="cartas">
                     <h3>Tours</h3>
@@ -101,7 +113,7 @@
     <section class="touresymas">
 
         <h2>¿Estás preparado para tener las mejores vacaciones?</h2>
-      <a href="servicios\servicios.html"><button>!Saber cómo!</button></a> 
+      <a href="../View/servicios.html"><button>!Saber cómo!</button></a> 
 
     </section>
 
@@ -113,7 +125,7 @@
 <footer class="container">
 
 
-    <img src="img/Bannerclassy.jpeg" alt="">
+    <img src="../Media/Bannerclassy.jpeg" alt="">
     <p>&copy; soyrafita 2024</p>
 </footer>
 

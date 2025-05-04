@@ -1,3 +1,10 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+$usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,24 +13,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servicios - Classy</title>
-    <link rel="stylesheet" href="servicios.css">
+    <link rel="stylesheet" href="../Css/servicios.css">
 </head>
 
 <body>
 
     <header>
-        <a class="logo" href="../index.php">
-            <img src="../img/classy.png" alt="logo">
+        <a class="logo" href="../View/index.php">
+            <img src="../Media/classy.png" alt="logo">
             <h2 class="nombredelaempresa">Classy</h2>
         </a>
 
         <nav>
-            <a href="../index.php">Home</a>
-            <a href="servicios.html">Servicios</a>
-            <a href="../conocenos/conocenos.html">Conócenos</a>
-            <a href="../redes\redes.html">Redes Sociales</a>
-            <a href="../resenas/resenas.php">Reseñas</a>
-        </nav>
+            <a href="../View/index.php">Home</a>
+            <a href="../View/login.php">Iniciar Sesion</a>
+            <a href="../View/servicios.html">Servicios</a>
+            <a href="../View/conocenos.html">Conócenos</a>
+            <a href="../View/redes.html">Redes Sociales</a>
+            <a href="../View/resenas.php">Reseñas</a>
+            <?php if ($usuarioActivo): ?>
+            <a href="../Controller/LogoutController.php">Cerrar sesión</a>
+        <?php endif; ?>
+            </nav>
     </header>
 
   
@@ -69,7 +80,7 @@
               
                     <article class="card-product">
                         <figure class="container-img">
-                            <img src="img/alojamientos/mangata.jpg" alt="Isla Mangata">
+                            <img src="../Media/alojamientos/mangata.jpg" alt="Isla Mangata">
                             <figcaption class="itemname">Isla Mangata</figcaption>
                         </figure>
                         <div class="button-group">
@@ -81,7 +92,7 @@
                   
                     <article class="card-product">
                         <figure class="container-img">
-                            <img src="img/alojamientos/palmarito.jpg" alt="Palmarito Beach">
+                            <img src="../Media/alojamientos/palmarito.jpg" alt="Palmarito Beach">
                             <figcaption class="itemname">Palmarito Beach</figcaption>
                         </figure>
                         <div class="button-group">
@@ -93,7 +104,7 @@
                   
                     <article class="card-product">
                         <figure class="container-img">
-                            <img src="img/alojamientos/ferrara.JPG" alt="Apartamento Ferrara">
+                            <img src="../Media/alojamientos/ferrara.JPG" alt="Apartamento Ferrara">
                             <figcaption class="itemname">Apto Ferrara</figcaption>
                         </figure>
                         <div class="button-group">
@@ -105,7 +116,7 @@
               
                     <article class="card-product">
                         <figure class="container-img">
-                            <img src="img/alojamientos/CasaBaruLaPaz.jpg" alt="Casa Baru La Paz">
+                            <img src="../Media/alojamientos/CasaBaruLaPaz.jpg" alt="Casa Baru La Paz">
                             <figcaption class="itemname">Casa Baru La Paz</figcaption>
                         </figure>
                         <div class="button-group">
@@ -129,7 +140,7 @@
                    
                     <article class="card-product">
                         <figure class="container-img">
-                            <img src="img/botes/yate62ft.jpg" alt="Yate 62 FT">
+                            <img src="../Media/botes/yate62ft.jpg" alt="Yate 62 FT">
                             <figcaption class="itemname">Yate 62 FT</figcaption>
                         </figure>
                         <div class="button-group">
@@ -141,7 +152,7 @@
                  
                     <article class="card-product">
                         <figure class="container-img">
-                            <img src="img/botes/yateambar.jpg" alt="Yate Ambar">
+                            <img src="../Media/botes/yateambar.jpg" alt="Yate Ambar">
                             <figcaption class="itemname">Yate Ambar</figcaption>
                         </figure>
                         <div class="button-group">
@@ -153,7 +164,7 @@
              
                     <article class="card-product">
                         <figure class="container-img">
-                            <img src="img/botes/catamaranl.jpeg" alt="Catamaran Lagoon 52 FT">
+                            <img src="../Media/botes/catamaranl.jpeg" alt="Catamaran Lagoon 52 FT">
                             <figcaption class="itemname">Catamaran Lagoon 52 FT</figcaption>
                         </figure>
                         <div class="button-group">
@@ -165,7 +176,7 @@
            
                     <article class="card-product">
                         <figure class="container-img">
-                            <img src="img/botes/blackpanter.jpg" alt="Black Panther 41 FT">
+                            <img src="../Media/botes/blackpanter.jpg" alt="Black Panther 41 FT">
                             <figcaption class="itemname">Black Panther 41 FT</figcaption>
                         </figure>
                         <div class="button-group">
@@ -187,7 +198,7 @@
                    
                     <article class="card-product">
                         <figure class="container-img">
-                            <img src="img/toures/sunset.jpg" alt="Bahía tour">
+                            <img src="../Media/toures/sunset.jpg" alt="Bahía tour">
                             <figcaption class="itemname">Sunset & Night Tour</figcaption>
                         </figure>
                         <div class="button-group">
@@ -199,7 +210,7 @@
                    
                     <article class="card-product">
                         <figure class="container-img">
-                            <img src="img/toures/pedidademano.jpg" alt="Classy Romantic">
+                            <img src="../Media/toures/pedidademano.jpg" alt="Classy Romantic">
                             <figcaption class="itemname">Classy Romantic</figcaption>
                         </figure>
                         <div class="button-group">
@@ -211,7 +222,7 @@
                    
                     <article class="card-product">
                         <figure class="container-img">
-                            <img src="img/toures/daytour.jpg" alt="Day Tour">
+                            <img src="../Media/toures/daytour.jpg" alt="Day Tour">
                             <figcaption class="itemname">Day Tour</figcaption>
                         </figure>
                         <div class="button-group">
@@ -223,7 +234,7 @@
                    
                     <article class="card-product">
                         <figure class="container-img">
-                            <img src="img/toures/islaparadisiaca.jpg" alt="Magic Dream Island">
+                            <img src="../Media/toures/islaparadisiaca.jpg" alt="Magic Dream Island">
                             <figcaption class="itemname">Magic Dream Island</figcaption>
                         </figure>
                         <div class="button-group">

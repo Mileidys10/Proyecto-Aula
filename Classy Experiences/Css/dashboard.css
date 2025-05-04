@@ -1,0 +1,170 @@
+/* Resetting some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    text-decoration: none;
+}
+
+body {
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background-color: #111;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+header nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #ff6347; /* Cambié el color del hover a un color llamativo */
+}
+
+/* Asegura que el contenido de la página no quede cubierto por el header fijo */
+body {
+    margin-top: 80px; /* Añadí un margen superior para que el contenido no se superponga con el header */
+}
+
+
+/* Hero Section */
+#hero {
+    background-color: #fff;
+    padding: 80px 20px 40px;
+    text-align: center;
+    margin-top: 60px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#hero h1 {
+    font-size: 36px;
+    color: #222;
+    margin-bottom: 20px;
+}
+
+#hero p {
+    font-size: 18px;
+    color: #666;
+}
+
+/* Resumen General Section */
+#whoareus {
+    background-color: #fff;
+    padding: 40px 20px;
+    margin: 20px 0;
+}
+
+#whoareus .container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.summary-card {
+    background-color: #f4f4f4;
+    width: 250px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.summary-card:hover {
+    transform: translateY(-10px);
+}
+
+#whoareus h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#whoareus p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Servicios Section */
+#servicios {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 20px;
+    flex-wrap: wrap;
+}
+
+#servicios .cartas {
+    background-color: #fff;
+    width: 250px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+#servicios .cartas:hover {
+    transform: translateY(-10px);
+}
+
+#servicios h3 {
+    color: #333;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+#servicios p {
+    color: #777;
+    font-size: 14px;
+}
+
+/* Footer */
+footer {
+    background-color: #111;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 40px;
+}
+
+footer img {
+    width: 50px;
+}
