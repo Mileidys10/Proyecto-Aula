@@ -11,12 +11,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
-    <link rel="stylesheet" href="../Css/styles.css">
+    <link rel="stylesheet" href="../Css/login.css">
 </head>
 <body>
     <div class="form">
         <form action="../Controller/UsuarioController.php" method="post">
-            <h2>login</h2>
+            <h2>Iniciar Sesión</h2>
             <p class="msg"><?php echo htmlspecialchars($msg); ?></p>
             <div class="form-group">
             <input type="hidden" name="accion" value="login">
@@ -27,7 +27,9 @@
             <div class="form-group">
                 <input type="password" name="password"  class="form-control" required placeholder="Ingresa tu contraseña" >
             </div>
+            
             <button class="btn font-weight-bold" name="submit">Iniciar sesión ahora</button>
+            <br><br>
             <p>No tienes una cuenta? <a href="../View/registro.php">Registrate ahora</a></p>
         </form>
     </div>

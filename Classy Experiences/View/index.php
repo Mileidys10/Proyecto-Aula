@@ -12,10 +12,12 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
 <head>
     <meta charset="UTF-8">
     <title>Classy Experiences</title>
-    <link rel="stylesheet" href="../Css/index.css">
+    <link rel="stylesheet" href="../Css/index-o.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css"
         integrity="sha512-9xKTRVabjVeZmc+GUW8GgSmcREDunMM+Dt/GrzchfN8tkwHizc5RP4Ok/MXFFy5rIjJjzhndFScTceq5e6GvVQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -28,14 +30,18 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
     
         <nav>
             <a href="../View/index.php">Home</a>
-            <a href="../View/login.php">Iniciar Sesion</a>
-            <a href="../View/servicios.html">Servicios</a>
-            <a href="../View/conocenos.html">Conócenos</a>
-            <a href="../View/redes.html">Redes Sociales</a>
+            <a href="../View/servicios.php">Servicios</a>
+            <a href="../View/conocenos.php">Conócenos</a>
+            <a href="../View/redes.php">Redes Sociales</a>
             <a href="../View/resenas.php">Reseñas</a>
+            <a href="../View/login.php">Iniciar Sesion</a>
             <?php if ($usuarioActivo): ?>
     <a href="../Controller/LogoutController.php">Cerrar sesión</a>
 <?php endif; ?>
+<a href="../View/carrito.php" class="carrito">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="contador">3</span> 
+            </a>
         </nav>
     </header>
     
@@ -47,6 +53,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
         <h3>Conoce la experiencia Classy</h3>
 
         <form action="#whoareus">
+            <br> <br>
             <button>¡Descubrir cómo!</button>
 
         </form>

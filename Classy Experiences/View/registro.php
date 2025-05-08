@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
-    <link rel="stylesheet" href="../Css/styles.css">
+    <link rel="stylesheet" href="../Css/login.css">
 </head>
 <body>
     <div class="form">

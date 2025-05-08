@@ -25,11 +25,11 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
         </a>
         <nav>
             <a href="../View/index.php">Home</a>
-            <a href="../View/login.php">Iniciar Sesion</a>
-            <a href="../View/servicios.html">Servicios</a>
-            <a href="../View/conocenos.html">Conócenos</a>
-            <a href="../View/redes.html">Redes Sociales</a>
+            <a href="../View/servicios.php">Servicios</a>
+            <a href="../View/conocenos.php">Conócenos</a>
+            <a href="../View/redes.php">Redes Sociales</a>
             <a href="../View/resenas.php">Reseñas</a>
+            <a href="../View/login.php">Iniciar Sesion</a>
             <?php if ($usuarioActivo): ?>
     <a href="../Controller/LogoutController.php">Cerrar sesión</a>
 <?php endif; ?>

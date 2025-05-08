@@ -15,6 +15,8 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Css/estilo.css">
     <title>Gracias por tu reseña</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
 
@@ -26,14 +28,18 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
 
         <nav>
         <a href="../View/index.php">Home</a>
-        <a href="../View/login.php">Iniciar Sesion</a>
-        <a href="../View/servicios.html">Servicios</a>
-            <a href="../View/conocenos.html">Conócenos</a>
-            <a href="../View/redes.html">Redes Sociales</a>
+        <a href="../View/servicios.php">Servicios</a>
+        <a href="../View/conocenos.php">Conócenos</a>
+            <a href="../View/redes.php">Redes Sociales</a>
             <a href="../View/resenas.php">Reseñas</a>
+            <a href="../View/login.php">Iniciar Sesion</a>
             <?php if ($usuarioActivo): ?>
     <a href="../Controller/LogoutController.php">Cerrar sesión</a>
 <?php endif; ?>
+<a href="../View/carrito.php" class="carrito">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="contador">3</span> 
+            </a>
         </nav>
     </header>
 
