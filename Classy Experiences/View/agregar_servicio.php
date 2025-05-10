@@ -1,4 +1,12 @@
 <?php
+session_start();
+
+require_once '../Controller/AdminController.php';
+
+$msg = $_GET['msg'] ?? '';
+?>
+
+<!-- 
 require_once '../Controller/AdminController.php';
 
 $msg = $_GET['msg'] ?? '';
@@ -8,9 +16,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
 
-?>
-
-
+-->
 
 
 

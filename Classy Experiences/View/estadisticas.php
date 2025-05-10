@@ -1,7 +1,9 @@
 <?php
+session_start();
+
 require_once '../Controller/EstadisticasController.php';
 
-$estadisticas = EstadisticasController::obtenerEstadisticas();
+//$estadisticas = EstadisticasController::obtenerEstadisticas();
 ?>
 
 <!DOCTYPE html>

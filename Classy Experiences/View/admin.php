@@ -1,10 +1,9 @@
 <?php
-require_once '../Controller/AdminController.php';
-
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-$usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
+  require_once '../Controller/AdminController.php';
+//$usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo-->
 ?>
 
 <!DOCTYPE html>

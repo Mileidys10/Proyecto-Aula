@@ -41,10 +41,10 @@ if (isset($_POST['submit']) && isset($_POST['accion'])) {
                 // GUARDAMOS DATOS EN SESIÓN
                 $_SESSION['id'] = $row['id'];
                 $_SESSION['nombre'] = $row['nombre'];
-                $_SESSION['tipo_usuario'] = $row['tipo_usuario'];
+                $_SESSION['tipo_usuario'] = $row['user_type'];
         
-                if ($row['tipo_usuario'] === 'admin') {
-                    header("Location: ../public/admin.php");
+                if ($row['user_type'] === 'admin') {
+                    header("Location: ../View/admin.php");
                 } else {
                     header("Location: ../View/index.php");
                 }
