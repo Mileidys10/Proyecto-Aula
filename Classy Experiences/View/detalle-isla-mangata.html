@@ -44,10 +44,10 @@
                 </p>
 <br>
                 <p class="precio">
-                    <strong>Precio por noche:</strong> $500.000 COP
+                    <strong>Precio por noche:</strong> $250.000 COP
                 </p>
 
-                <button class="boton-principal">
+                <button class="boton-principal agregar-carrito" data-nombre="Isla Magata" data-precio="250000">
                     <i class="fa-solid fa-cart-plus"></i> Agregar al carrito
                 </button>
             </div>
@@ -57,5 +57,30 @@
     <footer class="contenedor">
         <p>&copy; 2025 Cartagena Luxury. Todos los derechos reservados.</p>
     </footer>
+    <script>
+       document.addEventListener('DOMContentLoaded', () => {
+    const botones = document.querySelectorAll('.agregar-carrito');
+
+    botones.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const nombre = btn.getAttribute('data-nombre');
+            const precio = parseFloat(btn.getAttribute('data-precio'));
+
+            const servicio = { nombre, precio };
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+            // Verificar si ya existe
+            const existe = carrito.some(item => item.nombre === servicio.nombre);
+            if (existe) {
+                alert(`"${nombre}" ya está en el carrito.`);
+            } else {
+                carrito.push(servicio);
+                localStorage.setItem('carrito', JSON.stringify(carrito));
+                alert(`"${nombre}" agregado al carrito.`);
+            }
+        });
+    });
+});
+        </script>
 </body>
 </html>

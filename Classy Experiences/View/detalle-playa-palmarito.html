@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Palmarito Beach</title>
-    <link rel="stylesheet" href="../Css/playa-palmarito.css"> <!-- Asegúrate que esté bien enlazado -->
+    <link rel="stylesheet" href="../Css/playa-palmarito.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
-
 </head>
 <body>
     <header class="contenedor">
@@ -23,10 +22,9 @@
             <a href="../View/login.php">Iniciar Sesion</a>
             <a href="../Controller/LogoutController.php">Cerrar sesión</a>
             <a href="../View/carrito.php" class="carrito">
-                <i class="fas fa-shopping-cart"></i> <!-- Aquí cambié el icono para usar "fas" -->
-                <span class="contador">3</span> <!-- Esto es opcional, el número de productos -->
+                <i class="fas fa-shopping-cart"></i>
+                <span class="contador">3</span>
             </a>
-
         </nav>
     </header>
 
@@ -42,12 +40,12 @@
                     Ubicado frente al mar, Palmarito Beach ofrece un refugio paradisíaco donde el lujo tropical y la tranquilidad se combinan a la perfección. Este alojamiento es ideal para quienes buscan privacidad, comodidad y acceso directo a las playas vírgenes de Cartagena. 
                     Cuenta con habitaciones amplias, decoración caribeña, piscina privada y servicio de cocina personalizado. Perfecto para escapadas románticas o vacaciones familiares inolvidables.
                 </p>
-       
-<br>
-            <p class="precio">
-                <strong>Precio por noche:</strong> $500.000 COP
-            </p>
-                <button class="boton-principal">
+
+                <br>
+                <p class="precio">
+                    <strong>Precio por noche:</strong> $500.000 COP
+                </p>
+                <button class="boton-principal agregar-carrito" data-nombre="Palmarito Beach" data-precio="500000">
                     <i class="fa-solid fa-cart-plus"></i> Agregar al carrito
                 </button>
             </div>
@@ -57,5 +55,32 @@
     <footer class="contenedor">
         <p>&copy; 2025 Cartagena Luxury. Todos los derechos reservados.</p>
     </footer>
+
+    <!-- Script para agregar al carrito -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const botones = document.querySelectorAll('.agregar-carrito');
+
+    botones.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const nombre = btn.getAttribute('data-nombre');
+            const precio = parseFloat(btn.getAttribute('data-precio'));
+
+            const servicio = { nombre, precio };
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+            // Verificar si ya existe
+            const existe = carrito.some(item => item.nombre === servicio.nombre);
+            if (existe) {
+                alert(`"${nombre}" ya está en el carrito.`);
+            } else {
+                carrito.push(servicio);
+                localStorage.setItem('carrito', JSON.stringify(carrito));
+                alert(`"${nombre}" agregado al carrito.`);
+            }
+        });
+    });
+});
+    </script>
 </body>
 </html>

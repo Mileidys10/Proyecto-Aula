@@ -69,27 +69,30 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
     </section>
 
     <section id="servicios">
-        <div class="container">
-            <h2>NUESTROS SERVICIOS</h2>
-            <div class="servicos">
-                <div class="cartas">
-                    
-                    <h3>Alojamiento</h3>
-                    <p>Alojamiento boutique con encanto colonial. Disfruta de vistas panorámicas, piscinas privadas, playas privadas y servicio personalizado.</p><a href="servicios\servicios.html #alojamiento"><button>+ Info</button></a>
-                </div>
-                <div class="cartas">
-                    <h3>Embarcaciones</h3>
-                    <p>Navega en catamarán por el Caribe. Disfruta de cócteles, música y paisajes paradisíacos.</p>
-               <a href="../View/servicios.html#embarcaciones"><button>+ info</button></a>
-                </div>
-                <div class="cartas">
-                    <h3>Tours</h3>
-                    <p>Descubre la magia de Cartagena con tours personalizados. Historia, cultura y gastronomía</p><a href="servicios/servicios.html#toures"><button>+ info</button></a>
-                </div>
+    <div class="container">
+        <h2>NUESTROS SERVICIOS</h2>
+        <div class="servicos">
+            <div class="cartas">
+                <h3>Alojamiento</h3>
+                <p>Alojamiento boutique con encanto colonial...</p>
+                <a href="servicios\servicios.html#alojamiento"><button>+ Info</button></a>
+                <button class="agregar-carrito" data-nombre="Alojamiento" data-precio="150">Agregar al carrito</button>
+            </div>
+            <div class="cartas">
+                <h3>Embarcaciones</h3>
+                <p>Navega en catamarán por el Caribe...</p>
+                <a href="../View/servicios.html#embarcaciones"><button>+ Info</button></a>
+                <button class="agregar-carrito" data-nombre="Embarcaciones" data-precio="300">Agregar al carrito</button>
+            </div>
+            <div class="cartas">
+                <h3>Tours</h3>
+                <p>Descubre la magia de Cartagena...</p>
+                <a href="servicios/servicios.html#toures"><button>+ Info</button></a>
+                <button class="agregar-carrito" data-nombre="Tour Isla" data-precio="250">Agregar al carrito</button>
             </div>
         </div>
-
-    </section>
+    </div>
+</section>
 
 
 
@@ -123,6 +126,25 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
       <a href="../View/servicios.html"><button>!Saber cómo!</button></a> 
 
     </section>
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.agregar-carrito');
+
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const nombre = btn.getAttribute('data-nombre');
+            const precio = parseFloat(btn.getAttribute('data-precio'));
+
+            const servicio = { nombre, precio };
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            carrito.push(servicio);
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+
+            alert(`"${nombre}" agregado al carrito.`);
+        });
+    });
+});
+</script>
 
 </body>
 
