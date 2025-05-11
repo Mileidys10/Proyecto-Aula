@@ -38,9 +38,9 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
             <?php if ($usuarioActivo): ?>
     <a href="../Controller/LogoutController.php">Cerrar sesión</a>
 <?php endif; ?>
-<a href="../View/carrito.php" class="carrito">
+ <a href="../View/carrito.php" class="carrito">
                 <i class="fas fa-shopping-cart"></i>
-                <span class="contador">3</span> 
+                <span class="contador" id="contador-carrito">0</span> 
             </a>
         </nav>
     </header>
@@ -53,7 +53,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
         <h3>Conoce la experiencia Classy</h3>
 
         <form action="#whoareus">
-            <br> <br>
+            
             <button>¡Descubrir cómo!</button>
 
         </form>
@@ -75,19 +75,19 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
             <div class="cartas">
                 <h3>Alojamiento</h3>
                 <p>Alojamiento boutique con encanto colonial...</p>
-                <a href="servicios\servicios.html#alojamiento"><button>+ Info</button></a>
+                <a href="../View/servicios.php#alojamiento"><button>+ Info</button></a>
                 <button class="agregar-carrito" data-nombre="Alojamiento" data-precio="150">Agregar al carrito</button>
             </div>
             <div class="cartas">
                 <h3>Embarcaciones</h3>
                 <p>Navega en catamarán por el Caribe...</p>
-                <a href="../View/servicios.html#embarcaciones"><button>+ Info</button></a>
+                <a href="../View/servicios.php#embarcaciones"><button>+ Info</button></a>
                 <button class="agregar-carrito" data-nombre="Embarcaciones" data-precio="300">Agregar al carrito</button>
             </div>
             <div class="cartas">
                 <h3>Tours</h3>
                 <p>Descubre la magia de Cartagena...</p>
-                <a href="servicios/servicios.html#toures"><button>+ Info</button></a>
+                <a href="../View/servicios.php#toures"><button>+ Info</button></a>
                 <button class="agregar-carrito" data-nombre="Tour Isla" data-precio="250">Agregar al carrito</button>
             </div>
         </div>
@@ -126,24 +126,37 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
       <a href="../View/servicios.html"><button>!Saber cómo!</button></a> 
 
     </section>
-    <script>
-document.addEventListener('DOMContentLoaded', () => {
-    const buttons = document.querySelectorAll('.agregar-carrito');
+ <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const botones = document.querySelectorAll('.agregar-carrito');
+        const contadorCarrito = document.getElementById('contador-carrito');
 
-    buttons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const nombre = btn.getAttribute('data-nombre');
-            const precio = parseFloat(btn.getAttribute('data-precio'));
+        // Cargar la cantidad del carrito al iniciar
+        const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        contadorCarrito.textContent = carrito.length;
 
-            const servicio = { nombre, precio };
-            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-            carrito.push(servicio);
-            localStorage.setItem('carrito', JSON.stringify(carrito));
+        botones.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const nombre = btn.getAttribute('data-nombre');
+                const precio = parseFloat(btn.getAttribute('data-precio'));
 
-            alert(`"${nombre}" agregado al carrito.`);
+                const servicio = { nombre, precio };
+                let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+                const existe = carrito.some(item => item.nombre === servicio.nombre);
+                if (existe) {
+                    alert(`"${nombre}" ya está en el carrito.`);
+                } else {
+                    carrito.push(servicio);
+                    localStorage.setItem('carrito', JSON.stringify(carrito));
+                    alert(`"${nombre}" agregado al carrito.`);
+                }
+
+                // Actualizar el contador
+                contadorCarrito.textContent = carrito.length;
+            });
         });
     });
-});
 </script>
 
 </body>
@@ -155,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     <img src="../Media/Bannerclassy.jpeg" alt="">
-    <p>&copy; soyrafita 2024</p>
+    <p>&copy; ClassyGroup 2025</p>
 </footer>
 
 

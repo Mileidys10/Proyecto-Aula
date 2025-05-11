@@ -38,7 +38,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
         <?php endif; ?>
         <a href="../View/carrito.php" class="carrito">
                 <i class="fas fa-shopping-cart"></i>
-                <span class="contador">3</span> 
+                <span class="contador" id="contador-carrito">0</span> 
             </a>
             </nav>
     </header>
@@ -85,7 +85,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
                     de realeza.</p>
                 <div class="container-products">
 
-                <a href="detalle-isla-mangata.html" class="card-link">
+                <a href="../View/alojamientos/detalle-isla-mangata.html" class="card-link">
                     <article class="card-product">
                         <figure class="container-img">
                             <img src="../Media/alojamientos/mangata.jpg" alt="Isla Mangata">
@@ -99,7 +99,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
                     </article>
                     </a>
 
-                    <a href="detalle-playa-palmarito.html" class="card-link">
+                    <a href="../View/alojamientos/detalle-playa-palmarito.html" class="card-link">
                     <article class="card-product">
                         <figure class="container-img">
                             <img src="../Media/alojamientos/palmarito.jpg" alt="Palmarito Beach">
@@ -113,7 +113,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
                     </article>
                     </a>                    
                     
-                    <a href="detalle-apto-ferrara.html" class="card-link">
+                    <a href="../View/alojamientos/detalle-apto-ferrara.html" class="card-link">
                     <article class="card-product">
                         <figure class="container-img">
                             <img src="../Media/alojamientos/ferrara.JPG" alt="Apartamento Ferrara">
@@ -127,7 +127,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
                     </article>
                     </a>
 
-                    <a href="detalle-casa-baru.html" class="card-link">
+                    <a href="../View/alojamientos/detalle-casa-baru.html" class="card-link">
                     <article class="card-product">
                         <figure class="container-img">
                             <img src="../Media/alojamientos/CasaBaruLaPaz.jpg" alt="Casa Baru La Paz">
@@ -153,55 +153,64 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
                 </p>
                 <div class="container-products">
                    
-                    <article class="card-product">
-                        <figure class="container-img">
-                            <img src="../Media/botes/yate62ft.jpg" alt="Yate 62 FT">
-                            <figcaption class="itemname">Yate 62 FT</figcaption>
-                        </figure>
-                        <div class="button-group">
-                            <button><i class="fa-regular fa-eye"></i></button>
-                            <button><i class="fa-regular fa-heart"></i></button>
-                            <button><i class="fa-solid fa-code-compare"></i></button>
-                        </div>
-                    </article>
-                 
-                    <article class="card-product">
-                        <figure class="container-img">
-                            <img src="../Media/botes/yateambar.jpg" alt="Yate Ambar">
-                            <figcaption class="itemname">Yate Ambar</figcaption>
-                        </figure>
-                        <div class="button-group">
-                            <button><i class="fa-regular fa-eye"></i></button>
-                            <button><i class="fa-regular fa-heart"></i></button>
-                            <button><i class="fa-solid fa-code-compare"></i></button>
-                        </div>
-                    </article>
-             
-                    <article class="card-product">
-                        <figure class="container-img">
-                            <img src="../Media/botes/catamaranl.jpeg" alt="Catamaran Lagoon 52 FT">
-                            <figcaption class="itemname">Catamaran Lagoon 52 FT</figcaption>
-                        </figure>
-                        <div class="button-group">
-                            <button><i class="fa-regular fa-eye"></i></button>
-                            <button><i class="fa-regular fa-heart"></i></button>
-                            <button><i class="fa-solid fa-code-compare"></i></button>
-                        </div>
-                    </article>
-           
-                    <article class="card-product">
-                        <figure class="container-img">
-                            <img src="../Media/botes/blackpanter.jpg" alt="Black Panther 41 FT">
-                            <figcaption class="itemname">Black Panther 41 FT</figcaption>
-                        </figure>
-                        <div class="button-group">
-                            <button><i class="fa-regular fa-eye"></i></button>
-                            <button><i class="fa-regular fa-heart"></i></button>
-                            <button><i class="fa-solid fa-code-compare"></i></button>
-                        </div>
-                    </article>
+                     <a href="../View/embarcaciones/detalle-yate-62ft.html" class="card-link">
+            <article class="card-product">
+                <figure class="container-img">
+                    <img src="../Media/botes/yate62ft.jpg" alt="Yate 62 FT">
+                    <figcaption class="itemname">Yate 62 FT</figcaption>
+                </figure>
+                <div class="button-group">
+                    <button><i class="fa-regular fa-eye"></i></button>
+                    <button><i class="fa-regular fa-heart"></i></button>
+                    <button><i class="fa-solid fa-code-compare"></i></button>
                 </div>
-            </section>
+            </article>
+        </a>
+
+        <a href="../View/embarcaciones/detalle-yate-ambar.html" class="card-link">
+            <article class="card-product">
+                <figure class="container-img">
+                    <img src="../Media/botes/yateambar.jpg" alt="Yate Ambar">
+                    <figcaption class="itemname">Yate Ambar</figcaption>
+                </figure>
+                <div class="button-group">
+                    <button><i class="fa-regular fa-eye"></i></button>
+                    <button><i class="fa-regular fa-heart"></i></button>
+                    <button><i class="fa-solid fa-code-compare"></i></button>
+                </div>
+            </article>
+        </a>
+
+        <a href="../View/embarcaciones/detalle-catamaran-lagoon.html" class="card-link">
+            <article class="card-product">
+                <figure class="container-img">
+                    <img src="../Media/botes/catamaranl.jpeg" alt="Catamaran Lagoon 52 FT">
+                    <figcaption class="itemname">Catamaran Lagoon 52 FT</figcaption>
+                </figure>
+                <div class="button-group">
+                    <button><i class="fa-regular fa-eye"></i></button>
+                    <button><i class="fa-regular fa-heart"></i></button>
+                    <button><i class="fa-solid fa-code-compare"></i></button>
+                </div>
+            </article>
+        </a>
+
+        <a href="../View/embarcaciones/detalle-black-panther.html" class="card-link">
+            <article class="card-product">
+                <figure class="container-img">
+                    <img src="../Media/botes/blackpanter.jpg" alt="Black Panther 41 FT">
+                    <figcaption class="itemname">Black Panther 41 FT</figcaption>
+                </figure>
+                <div class="button-group">
+                    <button><i class="fa-regular fa-eye"></i></button>
+                    <button><i class="fa-regular fa-heart"></i></button>
+                    <button><i class="fa-solid fa-code-compare"></i></button>
+                </div>
+            </article>
+        </a>
+
+    </div>
+</section>
             <section class="container top-products">
                 <h2 id="toures" class="heading-2">Planes y toures</h2>
                 <p>Desde aventuras emocionantes hasta momentos románticos, Cartagena lo tiene todo. Explora el Volcán
@@ -273,6 +282,39 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
     </footer>
 
     <script src="index.js"></script>
+
+     <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const botones = document.querySelectorAll('.agregar-carrito');
+        const contadorCarrito = document.getElementById('contador-carrito');
+
+        // Cargar la cantidad del carrito al iniciar
+        const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        contadorCarrito.textContent = carrito.length;
+
+        botones.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const nombre = btn.getAttribute('data-nombre');
+                const precio = parseFloat(btn.getAttribute('data-precio'));
+
+                const servicio = { nombre, precio };
+                let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+                const existe = carrito.some(item => item.nombre === servicio.nombre);
+                if (existe) {
+                    alert(`"${nombre}" ya está en el carrito.`);
+                } else {
+                    carrito.push(servicio);
+                    localStorage.setItem('carrito', JSON.stringify(carrito));
+                    alert(`"${nombre}" agregado al carrito.`);
+                }
+
+                // Actualizar el contador
+                contadorCarrito.textContent = carrito.length;
+            });
+        });
+    });
+</script>
 </body>
 
 </html>

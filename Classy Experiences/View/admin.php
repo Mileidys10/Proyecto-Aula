@@ -1,10 +1,21 @@
 <?php
+// Verifica si la sesión está iniciada
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-  require_once '../Controller/AdminController.php';
-//$usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo-->
+
+// Verifica si el usuario está autenticado y es administrador
+if (!isset($_SESSION['id']) || $_SESSION['tipo_usuario'] !== 'admin') {
+    // Redirige al login si no está autenticado
+    header("Location: login.php?msg=¡Debes iniciar sesión como administrador!");
+    exit;
+}
+
+// Asignar el nombre del admin a una variable para mostrarlo
+$admin_nombre = $_SESSION['nombre']; 
+$usuarioActivo = true; // Esto habilita el botón de cerrar sesión
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -33,6 +44,7 @@ if (session_status() === PHP_SESSION_NONE) {
             <?php if ($usuarioActivo): ?>
     <a href="../Controller/LogoutController.php">Cerrar sesión</a>
 <?php endif; ?>
+
         </nav>
     </header>
 

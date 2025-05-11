@@ -36,9 +36,9 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
             <?php if ($usuarioActivo): ?>
     <a href="../Controller/LogoutController.php">Cerrar sesión</a>
 <?php endif; ?>
-<a href="../View/carrito.php" class="carrito">
+ <a href="../View/carrito.php" class="carrito">
                 <i class="fas fa-shopping-cart"></i>
-                <span class="contador">3</span> 
+                <span class="contador" id="contador-carrito">0</span> 
             </a>
         </nav>
     </header>
