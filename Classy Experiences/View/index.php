@@ -29,6 +29,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
         </a>
     
         <nav>
+            <a href="../view/contacto.php">Atencion al cliente</a>
             <a href="../View/index.php">Home</a>
             <a href="../View/servicios.php">Servicios</a>
             <a href="../View/conocenos.php">Conócenos</a>
