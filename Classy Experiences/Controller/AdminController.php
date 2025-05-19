@@ -5,7 +5,7 @@ session_start();
 if (isset($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] === 'admin') {
     // El usuario es administrador, continúa con la lógica
     echo "Bienvenido, administrador.";
-        header("Location: ../View/admin.php");
+        header("Location: ../View/admin.php");  
 
 } else {
     // El usuario no es administrador, redirige al inicio

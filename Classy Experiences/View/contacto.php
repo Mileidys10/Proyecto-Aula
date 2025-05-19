@@ -28,7 +28,7 @@
     </header>
     <center>
   <h2>Formulario de Atención al Cliente</h2>
-  <form action="../Model/enviar_contacto.php" method="post">
+  <form action="../View/enviar_contacto.php" method="post">
     <label for="nombre">Nombre:</label><br>
     <input type="text" id="nombre" name="nombre" required><br><br>
 
