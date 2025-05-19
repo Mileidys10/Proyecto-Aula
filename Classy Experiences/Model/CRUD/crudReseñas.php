@@ -6,7 +6,6 @@ class Reseña {
     public function agregarReseña($nombre, $comentario, $puntuacion) {
         $conn = Conexion::conectar();
 
-        // Cambiamos el formato de la fecha a Y-m-d
         $fecha = date("Y-m-d");
         $stmt = $conn->prepare("INSERT INTO resenas_usuarios(nombre, comentario, puntuacion, fecha) VALUES (?, ?, ?, ?)");
         $stmt->bind_param("ssis", $nombre, $comentario, $puntuacion, $fecha);
@@ -19,10 +18,22 @@ class Reseña {
         }
     }
 
-    public function obtenerReseñas() {
+  public function obtenerReseñas() {
         $conn = Conexion::conectar();
         $resultado = $conn->query("SELECT * FROM resenas_usuarios ORDER BY fecha DESC");
-        return $resultado->fetch_all(MYSQLI_ASSOC);
+        $reseñas = [];
+        while ($row = $resultado->fetch_assoc()) {
+            $resena = new \Reseña();
+            $resena->setId($row['id']);
+            $resena->setNombre($row['nombre']);
+            $resena->setComentario($row['comentario']);
+            $resena->setPuntuacion($row['puntuacion']);
+            $resena->setFecha($row['fecha']);
+            $reseñas[] = $resena;
+        }
+        return $reseñas;
     }
 }
+
+
 ?>

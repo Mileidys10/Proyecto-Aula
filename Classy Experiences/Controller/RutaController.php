@@ -28,8 +28,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 }
-if ($_GET['accion'] === 'eliminar' && isset($_GET['id'])) {
-    crudRutas::eliminar($_GET['id']);
+if ($_POST['accion'] === 'eliminar' && isset($_POST['id'])) {
+    crudRutas::eliminar($_POST['id']);
     header("Location: ../View/mostrarRutas.php");
     exit;
 }

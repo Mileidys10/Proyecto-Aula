@@ -30,7 +30,7 @@
             
             <button class="btn font-weight-bold" name="submit">Iniciar sesión ahora</button>
             <br><br>
-            <p>No tienes una cuenta? <a href="../View/registro.php">Registrate ahora</a></p>
+            <p>No tienes una cuenta? <a href="../login/registro.php">Registrate ahora</a></p>
         </form>
     </div>
 </body>

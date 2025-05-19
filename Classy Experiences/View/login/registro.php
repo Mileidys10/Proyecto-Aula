@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,27 +15,25 @@
             <h2>Registro</h2>
             <p class="msg"></p>
             <div class="form-group">
-                <input type="text" name="nombre"  required placeholder="Ingresa el nombre" class="form-control" >
+                <input type="text" name="nombre"  required placeholder="Ingresa tu nombre" class="form-control" >
             </div>
             <div class="form-group">
-                <input type="email" name="email"  required placeholder="Ingresa el correo" class="form-control" >
+                <input type="email" name="email"  required placeholder="Ingresa tu correo" class="form-control" >
             </div>
-             <div class="form-group">
+            <div class="form-group">
                 <select name="tipo_usuario" id="" class="form-control">
                     <option value="user">Usuario</option>
                     <option value="admin">Administrador</option>
-                    <option value="admin">Guia Turistico</option>
-                    <option value="admin">Conductor</option>
                 </select>
             </div>
             <div class="form-group">
-                <input type="password" name="password"  required placeholder="Ingresa la contraseña" class="form-control" >
+                <input type="password" name="password"  required placeholder="Ingresa tu contraseña" class="form-control" >
             </div>
             <div class="form-group">
-                <input type="password" name="confirm_password" required placeholder="Confirmar la contraseña" class="form-control" >
+                <input type="password" name="confirm_password" required placeholder="Confirmar tu contraseña" class="form-control" >
             </div>
             <button class="btn font-weight-bold" name="submit">Registrate ahora</button>
-            <p>Desea regresar atras?<a href="../View/admin.php">Pagina Principal Admin</a></p>
+            <p>Ya tienes una cuenta? <a href="../login/login.php">Inicia sesión ahora</a></p>
         </form>
     </div>
 </body>

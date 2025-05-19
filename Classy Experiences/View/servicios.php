@@ -27,12 +27,13 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
         </a>
 
         <nav>
+             <a href="../view/atencionCliente/contacto.php">Atencion al cliente</a>
             <a href="../View/index.php">Home</a>
             <a href="../View/servicios.php">Servicios</a>
             <a href="../View/conocenos.php">Conócenos</a>
             <a href="../View/redes.php">Redes Sociales</a>
-            <a href="../View/resenas.php">Reseñas</a>
-            <a href="../View/login.php">Iniciar Sesion</a>
+            <a href="../View/reseñas/resenas.php">Reseñas</a>
+            <a href="../View/login/login.php">Iniciar Sesion</a>
             <?php if ($usuarioActivo): ?>
             <a href="../Controller/LogoutController.php">Cerrar sesión</a>
         <?php endif; ?>
@@ -85,10 +86,10 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
                     de realeza.</p>
                 <div class="container-products">
 
-                <a href="../View/alojamientos/detalle-isla-mangata.html" class="card-link">
+                <a href="../View/alojamientos/detalle-isla-mangata.php" class="card-link">
                     <article class="card-product">
                         <figure class="container-img">
-                            <img src="../Media/alojamientos/mangata.jpg" alt="Isla Mangata">
+                            <img src="../img/alojamientos/mangata.jpg" alt="Isla Mangata">
                             <figcaption class="itemname">Isla Mangata</figcaption>
                         </figure>
                         <div class="button-group">
@@ -99,10 +100,10 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
                     </article>
                     </a>
 
-                    <a href="../View/alojamientos/detalle-playa-palmarito.html" class="card-link">
+                    <a href="../View/alojamientos/detalle-playa-palmarito.php" class="card-link">
                     <article class="card-product">
                         <figure class="container-img">
-                            <img src="../Media/alojamientos/palmarito.jpg" alt="Palmarito Beach">
+                            <img src="../img/alojamientos/palmarito.jpg" alt="Palmarito Beach">
                             <figcaption class="itemname">Palmarito Beach</figcaption>
                         </figure>
                         <div class="button-group">
@@ -113,10 +114,10 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
                     </article>
                     </a>                    
                     
-                    <a href="../View/alojamientos/detalle-apto-ferrara.html" class="card-link">
+                    <a href="../View/alojamientos/detalle-apto-ferrara.php" class="card-link">
                     <article class="card-product">
                         <figure class="container-img">
-                            <img src="../Media/alojamientos/ferrara.JPG" alt="Apartamento Ferrara">
+                            <img src="../img/alojamientos/ferrara.JPG" alt="Apartamento Ferrara">
                             <figcaption class="itemname">Apto Ferrara</figcaption>
                         </figure>
                         <div class="button-group">
@@ -127,10 +128,10 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
                     </article>
                     </a>
 
-                    <a href="../View/alojamientos/detalle-casa-baru.html" class="card-link">
+                    <a href="../View/alojamientos/detalle-casa-baru.php" class="card-link">
                     <article class="card-product">
                         <figure class="container-img">
-                            <img src="../Media/alojamientos/CasaBaruLaPaz.jpg" alt="Casa Baru La Paz">
+                            <img src="../img/alojamientos/CasaBaruLaPaz.jpg" alt="Casa Baru La Paz">
                             <figcaption class="itemname">Casa Baru La Paz</figcaption>
                         </figure>
                         <div class="button-group">
@@ -156,7 +157,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
                      <a href="../View/embarcaciones/detalle-yate-62ft.html" class="card-link">
             <article class="card-product">
                 <figure class="container-img">
-                    <img src="../Media/botes/yate62ft.jpg" alt="Yate 62 FT">
+                    <img src="../img/botes/yate62ft.jpg" alt="Yate 62 FT">
                     <figcaption class="itemname">Yate 62 FT</figcaption>
                 </figure>
                 <div class="button-group">
@@ -170,7 +171,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
         <a href="../View/embarcaciones/detalle-yate-ambar.html" class="card-link">
             <article class="card-product">
                 <figure class="container-img">
-                    <img src="../Media/botes/yateambar.jpg" alt="Yate Ambar">
+                    <img src="../img/botes/yateambar.jpg" alt="Yate Ambar">
                     <figcaption class="itemname">Yate Ambar</figcaption>
                 </figure>
                 <div class="button-group">
@@ -184,7 +185,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
         <a href="../View/embarcaciones/detalle-catamaran-lagoon.html" class="card-link">
             <article class="card-product">
                 <figure class="container-img">
-                    <img src="../Media/botes/catamaranl.jpeg" alt="Catamaran Lagoon 52 FT">
+                    <img src="../img/botes/catamaranl.jpeg" alt="Catamaran Lagoon 52 FT">
                     <figcaption class="itemname">Catamaran Lagoon 52 FT</figcaption>
                 </figure>
                 <div class="button-group">
@@ -198,7 +199,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
         <a href="../View/embarcaciones/detalle-black-panther.html" class="card-link">
             <article class="card-product">
                 <figure class="container-img">
-                    <img src="../Media/botes/blackpanter.jpg" alt="Black Panther 41 FT">
+                    <img src="../img/botes/blackpanter.jpg" alt="Black Panther 41 FT">
                     <figcaption class="itemname">Black Panther 41 FT</figcaption>
                 </figure>
                 <div class="button-group">
@@ -222,7 +223,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
                    
                     <article class="card-product">
                         <figure class="container-img">
-                            <img src="../Media/toures/sunset.jpg" alt="Bahía tour">
+                            <img src="../img/toures/sunset.jpg" alt="Bahía tour">
                             <figcaption class="itemname">Sunset & Night Tour</figcaption>
                         </figure>
                         <div class="button-group">
@@ -234,7 +235,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
                    
                     <article class="card-product">
                         <figure class="container-img">
-                            <img src="../Media/toures/pedidademano.jpg" alt="Classy Romantic">
+                            <img src="../img/toures/pedidademano.jpg" alt="Classy Romantic">
                             <figcaption class="itemname">Classy Romantic</figcaption>
                         </figure>
                         <div class="button-group">
@@ -246,7 +247,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
                    
                     <article class="card-product">
                         <figure class="container-img">
-                            <img src="../Media/toures/daytour.jpg" alt="Day Tour">
+                            <img src="../img/toures/daytour.jpg" alt="Day Tour">
                             <figcaption class="itemname">Day Tour</figcaption>
                         </figure>
                         <div class="button-group">
@@ -258,7 +259,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
                    
                     <article class="card-product">
                         <figure class="container-img">
-                            <img src="../Media/toures/islaparadisiaca.jpg" alt="Magic Dream Island">
+                            <img src="../img/toures/islaparadisiaca.jpg" alt="Magic Dream Island">
                             <figcaption class="itemname">Magic Dream Island</figcaption>
                         </figure>
                         <div class="button-group">
@@ -283,38 +284,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
 
     <script src="index.js"></script>
 
-     <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const botones = document.querySelectorAll('.agregar-carrito');
-        const contadorCarrito = document.getElementById('contador-carrito');
-
-        // Cargar la cantidad del carrito al iniciar
-        const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-        contadorCarrito.textContent = carrito.length;
-
-        botones.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const nombre = btn.getAttribute('data-nombre');
-                const precio = parseFloat(btn.getAttribute('data-precio'));
-
-                const servicio = { nombre, precio };
-                let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-
-                const existe = carrito.some(item => item.nombre === servicio.nombre);
-                if (existe) {
-                    alert(`"${nombre}" ya está en el carrito.`);
-                } else {
-                    carrito.push(servicio);
-                    localStorage.setItem('carrito', JSON.stringify(carrito));
-                    alert(`"${nombre}" agregado al carrito.`);
-                }
-
-                // Actualizar el contador
-                contadorCarrito.textContent = carrito.length;
-            });
-        });
-    });
-</script>
+    <script src="../JS/servicios_carrito.js"></script>
 </body>
 
 </html>

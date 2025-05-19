@@ -31,8 +31,8 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
         <a href="../View/servicios.php">Servicios</a>
         <a href="../View/conocenos.php">Conócenos</a>
             <a href="../View/redes.php">Redes Sociales</a>
-            <a href="../View/resenas.php">Reseñas</a>
-            <a href="../View/login.php">Iniciar Sesion</a>
+            <a href="../reseñas/resenas.php">Reseñas</a>
+            <a href="../login/login.php">Iniciar Sesion</a>
             <?php if ($usuarioActivo): ?>
     <a href="../Controller/LogoutController.php">Cerrar sesión</a>
 <?php endif; ?>
@@ -57,6 +57,6 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
 
 <script>
     setTimeout(function() {
-        window.location.href = "../View/resenas.php";  
+        window.location.href = "../reseñas/resenas.php";  
     }, 5000);
 </script>

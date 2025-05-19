@@ -1,5 +1,7 @@
 <?php
 require_once '../Controller/ReseñaController.php';
+require_once '../Model/CRUD/crudReseñas.php';
+
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -11,12 +13,14 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Css/resenas.css">
     <title>Classy Experiences - Reseñas</title>
 </head>
+
 <body>
     <header>
         <a class="logo" href="../View/index.php">
@@ -28,11 +32,11 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
             <a href="../View/servicios.php">Servicios</a>
             <a href="../View/conocenos.php">Conócenos</a>
             <a href="../View/redes.php">Redes Sociales</a>
-            <a href="../View/resenas.php">Reseñas</a>
-            <a href="../View/login.php">Iniciar Sesion</a>
+            <a href="../reseñas/resenas.php">Reseñas</a>
+            <a href="../login/login.php">Iniciar Sesion</a>
             <?php if ($usuarioActivo): ?>
-    <a href="../Controller/LogoutController.php">Cerrar sesión</a>
-<?php endif; ?>
+                <a href="../Controller/LogoutController.php">Cerrar sesión</a>
+            <?php endif; ?>
         </nav>
     </header>
 
@@ -41,32 +45,33 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
             <h1>¡Comparte tu experiencia con nosotros!</h1>
             <p>Queremos saber lo que piensas sobre nuestros servicios.</p>
             <div class="reseñar-boton">
-                <a href="resenar.php">Agregar Reseña</a>
+                <a href="../reseñas/resenar.php">Agregar Reseña</a>
             </div>
         </section>
 
         <section class="contenido">
             <?php
-            $reseñas = $reseñaModel->obtenerReseñas();
-            foreach ($reseñas as $row):
+            $crudResenas = new Reseña();
+            $reseñas = $crudResenas->obtenerReseñas();
+            foreach ($reseñas as $resena):
             ?>
-            <div class="resena">
-                <div class="resena-header">
-                    <img src="../Media/avatar.png" alt="Avatar" class="avatar">
-                    <div>
-                        <h3><?= htmlspecialchars($row['nombre']) ?></h3>
-                        <p class="fecha"><?= htmlspecialchars($row['fecha']) ?></p>
+                <div class="resena">
+                    <div class="resena-header">
+                        <img src="../Media/avatar.png" alt="Avatar" class="avatar">
+                        <div>
+                            <h3><?= htmlspecialchars($resena->getNombre()) ?></h3>
+                            <p class="fecha"><?= htmlspecialchars($resena->getFecha()) ?></p>
+                        </div>
+                        <div class="estrellas">
+                            <?php
+                            for ($i = 1; $i <= 5; $i++) {
+                                echo $i <= $resena->getPuntuacion() ? "&#9733;" : "&#9734;";
+                            }
+                            ?>
+                        </div>
                     </div>
-                    <div class="estrellas">
-                        <?php
-                        for ($i = 1; $i <= 5; $i++) {
-                            echo $i <= $row['puntuacion'] ? "&#9733;" : "&#9734;";
-                        }
-                        ?>
-                    </div>
+                    <p class="comentario"><?= htmlspecialchars('"' . $resena->getComentario() . '"') ?></p>
                 </div>
-                <p class="comentario"><?= htmlspecialchars('"' . $row['comentario'] . '"') ?></p>
-            </div>
             <?php endforeach; ?>
         </section>
     </main>
@@ -77,4 +82,5 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
         </div>
     </footer>
 </body>
+
 </html>

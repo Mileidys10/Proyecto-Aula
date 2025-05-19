@@ -18,8 +18,8 @@
             <a href="../View/servicios.php">Servicios</a>
             <a href="../View/conocenos.php">Conócenos</a>
             <a href="../View/redes.php">Redes Sociales</a>
-            <a href="../View/resenas.php">Reseñas</a>
-            <a href="../View/login.php">Iniciar Sesion</a>
+            <a href="../reseñas/resenas.php">Reseñas</a>
+            <a href="../login/login.php">Iniciar Sesion</a>
  <a href="../View/carrito.php" class="carrito">
                 <i class="fas fa-shopping-cart"></i>
                 <span class="contador" id="contador-carrito">0</span> 
@@ -28,7 +28,7 @@
     </header>
     <center>
   <h2>Formulario de Atención al Cliente</h2>
-  <form action="../View/enviar_contacto.php" method="post">
+  <form action="../atencionCliente/enviar_contacto.php" method="post">
     <label for="nombre">Nombre:</label><br>
     <input type="text" id="nombre" name="nombre" required><br><br>
 

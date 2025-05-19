@@ -38,11 +38,8 @@ $usuarioActivo = true; // Esto habilita el botón de cerrar sesión
         </div>
         <nav>
             <a href="admin.php">Inicio</a>
-            <a href="agregar_servicio.php">Agregar Servicio</a>
-            <a href="estadisticas.php">Estadísticas</a>
-            <a href="reservas.php">Reservas</a>
-            <a href="registro_usuarios_admin.php">Registro Usuarios</a>
-            <a href="mostrar_usuario.php">mostrar usuarios</a>
+            <a href="../admin/registro_usuarios_admin.php">Registro Usuarios</a>
+            <a href="../admin/mostrar_usuario.php">mostrar usuarios</a>
             <?php if ($usuarioActivo): ?>
     <a href="../Controller/LogoutController.php">Cerrar sesión</a>
 <?php endif; ?>

@@ -1,7 +1,7 @@
 <?php
 
-require_once __DIR__ . '/../Rutas.php';
-require_once __DIR__ . '/../../Config/Conexion.php';
+require_once __DIR__ . '../Model/Entity/Rutas.php';
+require_once __DIR__ . '../Config/Conexion.php';
 
 class crudRutas {
     public static function agregar(Ruta $ruta) {

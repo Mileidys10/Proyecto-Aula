@@ -24,18 +24,18 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
 
     <header>
         <a class="logo" href="../View/index.php">
-            <img src="../Media/classy.png" alt="logo">
+            <img src="../img/classy.png" alt="logo">
             <h2 class="nombredelaempresa">Classy</h2>
         </a>
     
         <nav>
-            <a href="../view/contacto.php">Atencion al cliente</a>
+            <a href="../view/atencionCliente/contacto.php">Atencion al cliente</a>
             <a href="../View/index.php">Home</a>
             <a href="../View/servicios.php">Servicios</a>
             <a href="../View/conocenos.php">Conócenos</a>
             <a href="../View/redes.php">Redes Sociales</a>
-            <a href="../View/resenas.php">Reseñas</a>
-            <a href="../View/login.php">Iniciar Sesion</a>
+            <a href="../View/reseñas/resenas.php">Reseñas</a>
+            <a href="../View/login/login.php">Iniciar Sesion</a>
             <?php if ($usuarioActivo): ?>
     <a href="../Controller/LogoutController.php">Cerrar sesión</a>
 <?php endif; ?>
@@ -127,38 +127,8 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
       <a href="../View/servicios.html"><button>!Saber cómo!</button></a> 
 
     </section>
- <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const botones = document.querySelectorAll('.agregar-carrito');
-        const contadorCarrito = document.getElementById('contador-carrito');
+ <script src="../JS/servicios_carrito.js"></script>
 
-        // Cargar la cantidad del carrito al iniciar
-        const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-        contadorCarrito.textContent = carrito.length;
-
-        botones.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const nombre = btn.getAttribute('data-nombre');
-                const precio = parseFloat(btn.getAttribute('data-precio'));
-
-                const servicio = { nombre, precio };
-                let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-
-                const existe = carrito.some(item => item.nombre === servicio.nombre);
-                if (existe) {
-                    alert(`"${nombre}" ya está en el carrito.`);
-                } else {
-                    carrito.push(servicio);
-                    localStorage.setItem('carrito', JSON.stringify(carrito));
-                    alert(`"${nombre}" agregado al carrito.`);
-                }
-
-                // Actualizar el contador
-                contadorCarrito.textContent = carrito.length;
-            });
-        });
-    });
-</script>
 
 </body>
 
@@ -168,7 +138,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
 <footer class="container">
 
 
-    <img src="../Media/Bannerclassy.jpeg" alt="">
+    <img src="../img/Bannerclassy.jpeg" alt="">
     <p>&copy; ClassyGroup 2025</p>
 </footer>
 

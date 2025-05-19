@@ -1,10 +1,18 @@
 <?php
-session_start();
-require_once __DIR__ . '/../Model/Usuario.php';
-require_once '../Config/Conexion.php';
-$msg = "";
 
-if (isset($_POST['submit']) && isset($_POST['accion'])) {
+session_start();
+require_once __DIR__ . '/../Model/CRUD/crudUsuario.php';
+require_once __DIR__ . '/../Model/Service/UsuarioService.php';
+require_once __DIR__ . '/../Model/Usuario.php';
+require_once __DIR__ . '/../Model/CRUD/crudConductor.php';
+require_once __DIR__ . '/../Model/CRUD/crudGuiaTuristico.php';
+require_once __DIR__ . '/../Model/CRUD/crudAdmin.php';
+require_once __DIR__ . '/../Model/Conductor.php';
+require_once __DIR__ . '/../Model/GuiaTuristico.php';
+require_once __DIR__ . '/../Model/Admin.php';
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $accion = $_POST['accion'];
 
     if ($accion === 'registrar') {
@@ -12,54 +20,111 @@ if (isset($_POST['submit']) && isset($_POST['accion'])) {
         $email = $_POST['email'];
         $password = $_POST['password'];
         $confirm_password = $_POST['confirm_password'];
-        $tipo_usuario = $_POST['tipo_usuario'];
-    
+        $user_type = $_POST['tipo_usuario'];
+
         if ($password !== $confirm_password) {
-            header("Location: ../View/registro.php?msg=¡Las contraseñas no coinciden!");
+            header("Location: ../login/registro.php?msg=¡Las contraseñas no coinciden!");
             exit;
         }
-    
-        if (Usuario::existeEmail($email)->num_rows > 0) {
-            header("Location: ../View/registro.php?msg=¡El correo ya está registrado!");
+
+        if (UsuarioService::existeEmail($email)) {
+            header("Location: ../login/registro.php?msg=¡El correo ya está registrado!");
             exit;
         }
-    
-        if (Usuario::registrar($nombre, $email, $password, $tipo_usuario)) {
-            header("Location: ../View/login.php?msg=¡Registro exitoso! Inicia sesión.");
+
+        $usuario = new Usuario();
+        $usuario->setNombre($nombre);
+        $usuario->setEmail($email);
+        $usuario->setPassword(password_hash($password, PASSWORD_DEFAULT));
+        $usuario->setUserType($user_type);
+
+        $id_usuario = crudUsuario::agregar($usuario); // <-- debe retornar el ID insertado
+
+        if ($id_usuario) {
+            // Guardar datos extra según el tipo
+            if ($user_type === 'conductor') {
+                $conductor = new Conductor();
+                $conductor->setId($id_usuario);
+                $conductor->setLicencia($_POST['licencia'] ?? '');
+                $conductor->setVehiculo($_POST['vehiculo'] ?? '');
+                crudConductor::agregar($conductor);
+            }
+            if ($user_type === 'guia_turistico') {
+                $guia = new GuiaTuristico();
+                $guia->setId($id_usuario);
+                $guia->setEspecialidad($_POST['especialidad'] ?? '');
+                $guia->setIdiomas($_POST['idiomas'] ?? '');
+                crudGuiaTuristico::agregar($guia);
+            }
+
+            if ($user_type === 'admin') {
+                $admin = new Admin();
+                $admin->setId($id_usuario);
+                $admin->setCargo($_POST['cargo'] ?? '');
+                crudAdmin::agregar($admin);
+            }
+            // Redirección según si es admin o no
+            if (isset($_POST['desde_admin']) && $_POST['desde_admin'] == "1") {
+                header("Location: ../View/admin/mostrar_usuario.php?msg=¡Usuario registrado exitosamente!");
+            } else {
+                header("Location: ../login/login.php?msg=¡Registro exitoso! Inicia sesión.");
+            }
         } else {
-            header("Location: ../View/registro.php?msg=¡Error al registrar el usuario!");
+            header("Location: ../login/registro.php?msg=¡Error al registrar el usuario!");
         }
         exit;
-    } elseif ($accion === 'login') {
+    }
+
+    if ($accion === 'login') {
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        $usuario = Usuario::login($email);
-        if ($usuario->num_rows > 0) {
-            $row = $usuario->fetch_assoc();
-            if (password_verify($password, $row['password'])) {
-                // GUARDAMOS DATOS EN SESIÓN
-                $_SESSION['id'] = $row['id'];
-                $_SESSION['nombre'] = $row['nombre'];
-                $_SESSION['tipo_usuario'] = $row['user_type'];
-        
-                if ($row['user_type'] === 'admin') {
-                    header("Location: ../View/admin.php");
-                } else {
-                    header("Location: ../View/index.php");
-                }
-                exit;
+        $usuario = crudUsuario::obtenerPorEmail($email);
+
+        if ($usuario && password_verify($password, $usuario->getPassword())) {
+            $_SESSION['id'] = $usuario->getId();
+            $_SESSION['nombre'] = $usuario->getNombre();
+            $_SESSION['tipo_usuario'] = $usuario->getUserType();
+
+            if ($_SESSION['tipo_usuario'] === 'admin') {
+                header("Location: ../View/admin/admin.php");
             } else {
-                // Contraseña incorrecta
-                header("Location: ../View/login.php?msg=¡Contraseña incorrecta!");
-                exit;
+                header("Location: ../View/index.php");
             }
         } else {
-            // Usuario no encontrado
-            header("Location: ../View/login.php?msg=¡Correo no registrado!");
-            exit;
+            header("Location: ../View/login.php?msg=¡Credenciales incorrectas!");
         }
-}
-}
+        exit;
+    }
+    if ($accion === 'editar') {
+        $id = $_POST['id'];
+        $nombre = $_POST['nombre'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $user_type = $_POST['tipo_usuario'];
 
+        $usuario = new Usuario();
+        $usuario->setId($id);
+        $usuario->setNombre($nombre);
+        $usuario->setEmail($email);
+        $usuario->setPassword(password_hash($password, PASSWORD_DEFAULT));
+        $usuario->setUserType($user_type);
+
+        crudUsuario::editar($usuario);
+        header("Location: ../View/admin/mostrar_usuario.php");
+        exit;
+    }
+    if ($accion === 'eliminar') {
+        $id = $_POST['id'];
+
+        crudUsuario::eliminarUsuario($id);
+        header("Location: ../View/admin/mostrar_usuario.php");
+        exit;
+    }
+    if ($accion === 'cerrar_sesion') {
+        session_destroy();
+        header("Location: ../View/index.php");
+        exit;
+    }
+}
 ?>

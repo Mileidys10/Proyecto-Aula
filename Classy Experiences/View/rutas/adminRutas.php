@@ -23,8 +23,6 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo_usuario'] !== 'admin') {
     <a href="../View/index.php">Home</a>
             <a href="../View/agregarRuta">Agregar Ruta</a>
             <a href="../View/mostrarRutas.php">Mostrar Rutas</a>
-            <a href="../View/editarRutas.php">Editar Rutas</a>
-            <a href="../View/ElimarRutas.php">Eliminar Rutas</a>
-            <a href="../View/admin.php">Inicio</a>
+            <a href="../View/adminRutas.php">Inicio</a>
 </body>
 </html>

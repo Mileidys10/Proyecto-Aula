@@ -21,17 +21,19 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
     <!-- Encabezado -->
     <header>
         <a class="logo" href="../View/index.php">
-            <img src="../Media/classy.png" alt="logo">
+            <img src="../img/classy.png" alt="logo">
             <h2 class="nombredelaempresa">Classy</h2>
         </a>
 
         <nav>
+          <a href="../view/atencionCliente/contacto.php">Atencion al cliente</a>
             <a href="../View/index.php">Home</a>
             <a href="../View/servicios.php">Servicios</a>
             <a href="../View/conocenos.php">Conócenos</a>
             <a href="../View/redes.php">Redes Sociales</a>
-            <a href="../View/resenas.php">Reseñas</a>
-            <a href="../View/login.php">Iniciar Sesion</a>
+            <a href="../View/reseñas/resenas.php">Reseñas</a>
+            <a href="../View/login/login.php">Iniciar Sesion</a>
+            <a href="../login/login.php">Iniciar Sesion</a>
             <?php if ($usuarioActivo): ?>
             <a href="../Controller/LogoutController.php">Cerrar sesión</a>
             

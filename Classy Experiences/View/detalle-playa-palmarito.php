@@ -1,3 +1,11 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+$usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,17 +18,20 @@
 <body>
     <header class="contenedor">
         <a class="logo" href="../View/index.php">
-            <img src="../Media/classy.png" alt="logo">
+            <img src="../img/classy.png" alt="logo">
             <h2 class="nombredelaempresa">Classy</h2>
         </a>
         <nav>
+            <a href="../view/atencionCliente/contacto.php">Atencion al cliente</a>
             <a href="../View/index.php">Home</a>
             <a href="../View/servicios.php">Servicios</a>
             <a href="../View/conocenos.php">Conócenos</a>
             <a href="../View/redes.php">Redes Sociales</a>
-            <a href="../View/resenas.php">Reseñas</a>
-            <a href="../View/login.php">Iniciar Sesion</a>
-            <a href="../Controller/LogoutController.php">Cerrar sesión</a>
+            <a href="../View/reseñas/resenas.php">Reseñas</a>
+            <a href="../View/login/login.php">Iniciar Sesion</a>
+<?php if ($usuarioActivo): ?>
+    <a href="../Controller/LogoutController.php">Cerrar sesión</a>
+<?php endif; ?>
             <a href="../View/carrito.php" class="carrito">
                 <i class="fas fa-shopping-cart"></i>
                 <span class="contador">3</span>
@@ -31,7 +42,7 @@
     <main class="contenedor">
         <section class="tarjeta-detalle-producto">
             <figure class="contenedor-imagen">
-                <img src="../Media/alojamientos/299801132.jpg" alt="Palmarito Beach" style="width: 100%; border-radius: 15px;">
+                <img src="../img/alojamientos/299801132.jpg" alt="Palmarito Beach" style="width: 100%; border-radius: 15px;">
             </figure>
 
             <div class="informacion-producto">
@@ -57,30 +68,7 @@
     </footer>
 
     <!-- Script para agregar al carrito -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-    const botones = document.querySelectorAll('.agregar-carrito');
+  <script src="../JS/servicios_carrito.js"></script>
 
-    botones.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const nombre = btn.getAttribute('data-nombre');
-            const precio = parseFloat(btn.getAttribute('data-precio'));
-
-            const servicio = { nombre, precio };
-            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-
-            // Verificar si ya existe
-            const existe = carrito.some(item => item.nombre === servicio.nombre);
-            if (existe) {
-                alert(`"${nombre}" ya está en el carrito.`);
-            } else {
-                carrito.push(servicio);
-                localStorage.setItem('carrito', JSON.stringify(carrito));
-                alert(`"${nombre}" agregado al carrito.`);
-            }
-        });
-    });
-});
-    </script>
 </body>
 </html>

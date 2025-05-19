@@ -7,7 +7,6 @@ class Ruta {
     private $conductor_id;
     private $guia_id;
 
-    // Getters y setters
     public function getId() { return $this->id; }
     public function setId($id) { $this->id = $id; }
 
