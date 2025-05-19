@@ -39,7 +39,20 @@
     </style>
 </head>
 <body>
-    <h1>Editar Usuarios</h1>
+    <h1>Editar Usuarios</h1><br><br>
+    <form method="GET" style="margin-bottom: 15px;">
+    <label for="tipo">Filtrar por tipo de usuario:</label>
+    <select name="tipo" id="tipo">
+        <option value="">-- Todos --</option>
+        <option value="admin" <?= (isset($_GET['tipo']) && $_GET['tipo'] == 'admin') ? 'selected' : '' ?>>Admin</option>
+        <option value="user" <?= (isset($_GET['tipo']) && $_GET['tipo'] == 'user') ? 'selected' : '' ?>>User</option>
+        <option value="conductor" <?= (isset($_GET['tipo']) && $_GET['tipo'] == 'conductor') ? 'selected' : '' ?>>Conductor</option>
+        <option value="guia_turistico" <?= (isset($_GET['tipo']) && $_GET['tipo'] == 'guia_turistico') ? 'selected' : '' ?>>Guía Turístico</option>
+    </select>
+    <button type="submit" class="btn">Mostrar</button>
+</form>
+
+   
     <table>
         <thead>
             <tr>
@@ -56,7 +69,9 @@
             require_once __DIR__ . '/../Model/Usuario.php';
 
             // Obtener todos los usuarios
-            $result = Usuario::getAllUsuarios();
+            $tipo = $_GET['tipo'] ?? null;
+            $result = Usuario::getUsuariosPorTipo($tipo);
+
 
             // Verificar si hay resultados
             if ($result->num_rows > 0) {
@@ -77,6 +92,7 @@
     </table>
     <button class="btn" id="guardarCambios">Guardar Cambios</button>
     <a href="../View/admin.php" class="btn">Volver Atrás</a>
+    
 
      <script>
         // Hacer las celdas editables al hacer doble clic

@@ -34,12 +34,30 @@ class Usuario {
         return $stmt->get_result()->fetch_assoc();
     }
 
-    public static function getAllUsuarios() {
-        $conn = Conexion::conectar();
+    public static function getUsuariosPorTipo($tipo = null) {
+    $conn = Conexion::conectar();
+
+    if ($tipo === 'admin' || $tipo === 'user') {
+        $stmt = $conn->prepare("SELECT * FROM usuarios WHERE user_type = ?");
+        $stmt->bind_param("s", $tipo);
+    } elseif ($tipo === 'conductor') {
+        $stmt = $conn->prepare("
+            SELECT u.* FROM usuarios u
+            INNER JOIN conductor c ON u.id = c.id
+        ");
+    } elseif ($tipo === 'guia_turistico') {
+        $stmt = $conn->prepare("
+            SELECT u.* FROM usuarios u
+            INNER JOIN guia_turistico g ON u.id = g.id
+        ");
+    } else {
         $stmt = $conn->prepare("SELECT * FROM usuarios");
-        $stmt->execute();
-        return $stmt->get_result();
     }
+
+    $stmt->execute();
+    return $stmt->get_result();
+}
+
 
     public static function eliminarUsuario($id) {
         $conn = Conexion::conectar();
