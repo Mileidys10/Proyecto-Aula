@@ -1,17 +1,17 @@
 <?php
-include('../config/conexion.php'); // Ajusta el nombre si tu archivo es distinto
+header('Content-Type: application/json');
+include('../config/conexion.php');
 
-// Recibir datos JSON del body
-$data = json_decode(file_get_contents('php://input'), true);
+$raw = file_get_contents('php://input');
+$data = json_decode($raw, true);
 
 if (!$data) {
     http_response_code(400);
-    echo json_encode(['error' => 'No se recibieron datos']);
+    echo json_encode(['error' => 'No se recibieron datos o JSON inválido']);
     exit;
 }
 
 $nombre_cliente = $data['nombre_cliente'] ?? '';
-$fecha = date('Y-m-d H:i:s');
 $items = $data['items'] ?? [];
 
 if (empty($nombre_cliente) || empty($items)) {
@@ -20,16 +20,22 @@ if (empty($nombre_cliente) || empty($items)) {
     exit;
 }
 
-// Prepara e inserta cada servicio vendido en la tabla facturas
+$conexion = Conexion::conectar();
+
 foreach ($items as $item) {
-    $id_servicio = $item['id'] ?? 0;  // Debes mandar el id del servicio en el carrito para esto
+    $id_servicio = $item['id'] ?? 0;
     $precio = $item['precio'] ?? 0;
     $cantidad = $item['cantidad'] ?? 1;
 
     $total = $precio * $cantidad;
 
-    $stmt = $conexion->prepare("INSERT INTO facturas (id_servicio, nombre_cliente, fecha, cantidad, total) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("issid", $id_servicio, $nombre_cliente, $fecha, $cantidad, $total);
+    $stmt = $conexion->prepare("INSERT INTO facturas (id_servicio, nombre_cliente, fecha, cantidad, total) VALUES (?, ?, NOW(), ?, ?)");
+    if (!$stmt) {
+        http_response_code(500);
+        echo json_encode(['error' => 'Error en la consulta: ' . $conexion->error]);
+        exit;
+    }
+    $stmt->bind_param("isid", $id_servicio, $nombre_cliente, $cantidad, $total);
 
     if (!$stmt->execute()) {
         http_response_code(500);
@@ -42,4 +48,3 @@ $stmt->close();
 $conexion->close();
 
 echo json_encode(['success' => true]);
-?>

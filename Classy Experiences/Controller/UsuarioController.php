@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 header("Location: ../View/index.php");
             }
         } else {
-            header("Location: ../View/login.php?msg=¡Credenciales incorrectas!");
+            header("Location: ../View/login/login.php?msg=¡Credenciales incorrectas!");
         }
         exit;
     }

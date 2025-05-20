@@ -15,7 +15,12 @@
 
     <div id="carrito-container"></div>
     <h3 id="total">Total: $0</h3>
+
+ <!-- Esta línea debe ser borrada, es solo para simular el pago porque estoy teniendo problemas con PayPal ~r -->
+    <button id="btn-simular-pago">Simular Pago</button>
     <div id="paypal-button-container"></div>
+
+
 
     <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
     <script src="../JS/carrito.js"></script>
@@ -28,9 +33,12 @@
         <p id="factura-total" style="font-weight: bold;"></p>
         <button onclick="descargarPDF()" style="margin-top: 20px; background-color: #a65b4b; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer;">Descargar PDF</button>
 
+
+
+
     </div>
 
-   <script src="../JS/factura.js"></script>
+    <script src="../JS/factura.js"></script>
 </body>
 
 </html>
