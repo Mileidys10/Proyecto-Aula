@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../Usuario.php';
+require_once __DIR__ . '/../Entity/Usuario.php';
 require_once __DIR__ . '/../../Config/Conexion.php';
 
 class UsuarioService{

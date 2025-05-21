@@ -1,22 +1,28 @@
 <?php
 require_once __DIR__ . '/../../Config/Conexion.php';
-require_once __DIR__ . '/../Usuario.php';
+require_once __DIR__ . '/../Entity/Usuario.php';
+
 
 class crudUsuario
 {
     public static function agregar(Usuario $usuario)
-    {
-        $conn = Conexion::conectar();
-        $stmt = $conn->prepare("INSERT INTO usuarios (nombre, email, password, user_type) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param(
-            "ssss",
-            $usuario->getNombre(),
-            $usuario->getEmail(),
-            $usuario->getPassword(),
-            $usuario->getUserType()
-        );
-        return $stmt->execute();
-    }
+ {
+    $conn = Conexion::conectar();
+    $stmt = $conn->prepare("INSERT INTO usuarios (nombre, email, password, user_type) VALUES (?, ?, ?, ?)");
+    $nombre = $usuario->getNombre();
+    $email = $usuario->getEmail();
+    $password = $usuario->getPassword();
+    $user_type = $usuario->getUserType();
+    $stmt->bind_param(
+        "ssss",
+        $nombre,
+        $email,
+        $password,
+        $user_type
+    );
+    $stmt->execute();
+    return $conn->insert_id; // Así devuelves el ID insertado
+}
 
     
     

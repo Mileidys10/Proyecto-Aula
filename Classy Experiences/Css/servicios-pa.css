@@ -174,7 +174,7 @@ nav a:hover {
 .category-alojamiento {
     background-image: linear-gradient(0deg,
     rgba(177, 1, 1, 0.1),
-    rgba(0, 0, 0, 0.1)), url('../Media/alojamiento.jpeg');
+    rgba(0, 0, 0, 0.1)), url('../img/alojamiento.jpeg');
     
 }
 
@@ -183,13 +183,13 @@ nav a:hover {
 .category-embarcaciones {
     background-image: linear-gradient(0deg,
     rgba(0, 0, 0, 0.1),
-    rgba(0, 0, 0, 0.1)),url('../Media/embarcaciones.jpeg');
+    rgba(0, 0, 0, 0.1)),url('../img/embarcaciones.jpeg');
 }
 
 .category-toures {
     background-image: linear-gradient(0deg,
     rgba(0, 0, 0, 0.1),
-    rgba(0, 0, 0, 0.1)), url('../Media/toures.png');
+    rgba(0, 0, 0, 0.1)), url('../img/toures.png');
     
 }
 

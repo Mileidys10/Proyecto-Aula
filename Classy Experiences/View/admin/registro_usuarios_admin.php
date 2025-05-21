@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="form">
-        <form action="../Controller/UsuarioController.php" method="post">
+        <form action="../../Controller/UsuarioController.php" method="post">
     <input type="hidden" name="accion" value="registrar">
     <input type="hidden" name="desde_admin" value="1">
     <h2>Registro</h2>
@@ -50,6 +50,6 @@
     </div>
     <button class="btn" id="guardarCambios">Guardar Cambios</button>
     <a href="../admin/admin.php" class="btn">Volver Atrás</a>
-    <script src="../JS/registro.js"></script>
+    <script src="../../JS/registro.js"></script>
 </body>
 </html>

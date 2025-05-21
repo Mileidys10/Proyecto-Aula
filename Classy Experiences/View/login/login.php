@@ -1,8 +1,4 @@
 
-<?php $msg = $_GET['msg'] ?? ''; ?>
-
-
-
 
 
 <!DOCTYPE html>
@@ -15,9 +11,9 @@
 </head>
 <body>
     <div class="form">
-        <form action="../Controller/UsuarioController.php" method="post">
+        <form action="../../Controller/UsuarioController.php" method="post">
             <h2>Iniciar Sesión</h2>
-            <p class="msg"><?php echo htmlspecialchars($msg); ?></p>
+        
             <div class="form-group">
             <input type="hidden" name="accion" value="login">
             </div>

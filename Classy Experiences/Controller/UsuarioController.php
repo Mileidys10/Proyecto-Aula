@@ -1,15 +1,17 @@
 <?php
 
 session_start();
-require_once __DIR__ . '/../Model/CRUD/crudUsuario.php';
+
 require_once __DIR__ . '/../Model/Service/UsuarioService.php';
-require_once __DIR__ . '/../Model/Usuario.php';
+require_once __DIR__ . '/../Model/CRUD/crudUsuario.php';
 require_once __DIR__ . '/../Model/CRUD/crudConductor.php';
 require_once __DIR__ . '/../Model/CRUD/crudGuiaTuristico.php';
 require_once __DIR__ . '/../Model/CRUD/crudAdmin.php';
-require_once __DIR__ . '/../Model/Conductor.php';
-require_once __DIR__ . '/../Model/GuiaTuristico.php';
-require_once __DIR__ . '/../Model/Admin.php';
+require_once __DIR__ . '/../Model/Entity/Conductor.php';
+require_once __DIR__ . '/../Model/Entity/GuiaTuristico.php';
+require_once __DIR__ . '/../Model/Entity/Admin.php';
+require_once __DIR__ . '/../Model/Entity/Usuario.php';
+
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -67,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_POST['desde_admin']) && $_POST['desde_admin'] == "1") {
                 header("Location: ../View/admin/mostrar_usuario.php?msg=¡Usuario registrado exitosamente!");
             } else {
-                header("Location: ../login/login.php?msg=¡Registro exitoso! Inicia sesión.");
+                header("Location: ../View/login/login.php?msg=¡Registro exitoso! Inicia sesión.");
             }
         } else {
             header("Location: ../login/registro.php?msg=¡Error al registrar el usuario!");

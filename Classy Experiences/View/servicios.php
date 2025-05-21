@@ -22,7 +22,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
 
     <header>    
         <a class="logo" href="../View/index.php">
-            <img src="../Media/classy.png" alt="logo">
+            <img src="../img/classy.png" alt="logo">
             <h2 class="nombredelaempresa">Classy</h2>
         </a>
 

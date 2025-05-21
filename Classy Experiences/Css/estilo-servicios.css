@@ -105,7 +105,13 @@ main {
     justify-content: space-between;
 }
 
-
+.lista-detalle {
+    padding: 0;
+    margin: 20px;
+    font-size: 1.6rem;
+    color: #555;
+    line-height: 1.8;
+}
 
 .descripcion {
     font-size: 1.6rem;

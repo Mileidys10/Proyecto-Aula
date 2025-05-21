@@ -1,6 +1,7 @@
 <?php
-require_once __DIR__ . '../Model/Entity/GuiaTuristico.php';
-require_once __DIR__ . '../Config/Conexion.php';
+require_once __DIR__ . '/../Entity/GuiaTuristico.php';
+require_once __DIR__ . '/../../Config/Conexion.php';
+
 class crudGuiaTuristico{
     public static function agregar(GuiaTuristico $guia){
         $conn = Conexion::conectar();

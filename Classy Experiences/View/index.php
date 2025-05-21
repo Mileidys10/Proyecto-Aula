@@ -48,7 +48,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
     
 
     <section id="hero">
-
+        
         <h1>Classy Experiences</h1>
         <h2>Ten las vacaciones soñadas con el mayor lujo y comodidad</h2>
         <h3>Conoce la experiencia Classy</h3>
@@ -77,19 +77,19 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
                 <h3>Alojamiento</h3>
                 <p>Alojamiento boutique con encanto colonial...</p>
                 <a href="../View/servicios.php#alojamiento"><button>+ Info</button></a>
-                <button class="agregar-carrito" data-nombre="Alojamiento" data-precio="150">Agregar al carrito</button>
+               
             </div>
             <div class="cartas">
                 <h3>Embarcaciones</h3>
                 <p>Navega en catamarán por el Caribe...</p>
                 <a href="../View/servicios.php#embarcaciones"><button>+ Info</button></a>
-                <button class="agregar-carrito" data-nombre="Embarcaciones" data-precio="300">Agregar al carrito</button>
+                
             </div>
             <div class="cartas">
                 <h3>Tours</h3>
                 <p>Descubre la magia de Cartagena...</p>
                 <a href="../View/servicios.php#toures"><button>+ Info</button></a>
-                <button class="agregar-carrito" data-nombre="Tour Isla" data-precio="250">Agregar al carrito</button>
+             
             </div>
         </div>
     </div>

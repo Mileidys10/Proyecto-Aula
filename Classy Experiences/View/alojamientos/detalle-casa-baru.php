@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Palmarito Beach</title>
-    <link rel="stylesheet" href="../../Css/estilo-servicios.css">
+    <title>Casa Baru</title>
+    <link rel="stylesheet" href="../../Css/estilo-servicios.css"> <!-- Asegúrate que esté bien enlazado -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header class="contenedor">
         <a class="logo" href="../../View/index.php">
-            <img src="../../Media/classy.png" alt="logo">
+            <img src="../../img/classy.png" alt="logo">
             <h2 class="nombredelaempresa">Classy</h2>
         </a>
-         <nav>
+          <nav>
             <a href="../../View/index.php">Home</a>
             <a href="../../View/servicios.php">Servicios</a>
             <a href="../../View/conocenos.php">Conócenos</a>
@@ -31,21 +31,31 @@
     <main class="contenedor">
         <section class="tarjeta-detalle-producto">
             <figure class="contenedor-imagen">
-                <img src="../../Media/alojamientos/299801132.jpg" alt="Palmarito Beach" style="width: 100%; border-radius: 15px;">
+                <img src="../../img/alojamientos/magata.webp" alt="Isla Magata" style="width: 100%; border-radius: 15px;">
             </figure>
 
             <div class="informacion-producto">
-                <h2 class="titulo-secundario">Palmarito Beach</h2><br>
-                <p class="descripcion">
-                    Ubicado frente al mar, Palmarito Beach ofrece un refugio paradisíaco donde el lujo tropical y la tranquilidad se combinan a la perfección. Este alojamiento es ideal para quienes buscan privacidad, comodidad y acceso directo a las playas vírgenes de Cartagena. 
-                    Cuenta con habitaciones amplias, decoración caribeña, piscina privada y servicio de cocina personalizado. Perfecto para escapadas románticas o vacaciones familiares inolvidables.
+                <h2 class="titulo-secundario">Casa-Baru</h2><br>
+  <p class="descripcion">
+    Sumérgete en la tranquilidad de Casa Barú La Paz, una villa privada rodeada de naturaleza y con acceso directo a una playa de aguas cristalinas.
+    Perfecta para grupos grandes o familias, esta casa combina elegancia, espacio y contacto con el entorno.
+    <ul class="lista-detalle">
+        <li>5 habitaciones con baño privado</li>
+        <li>Piscina privada y zona de BBQ</li>
+        <li>Cocina full equipada</li>
+        <li>Servicio de chef y aseo disponible</li>
+        <li>Vista al mar y jardines tropicales</li>
+    </ul>
+</p>
+
+
+</p>
+<br>
+                <p class="precio">
+                    <strong>Precio por noche:</strong> $200.000 COP
                 </p>
 
-                <br>
-                <p class="precio">
-                    <strong>Precio por noche:</strong> $500.000 COP
-                </p>
-                <button class="boton-principal agregar-carrito" data-nombre="Palmarito Beach" data-precio="500000">
+                <button class="boton-principal agregar-carrito" data-nombre="Apto-Ferrara" data-precio="200000">
                     <i class="fa-solid fa-cart-plus"></i> Agregar al carrito
                 </button>
             </div>
@@ -55,9 +65,7 @@
     <footer class="contenedor">
         <p>&copy; 2025 Cartagena Luxury. Todos los derechos reservados.</p>
     </footer>
-
-    <!-- Script para agregar al carrito -->
-   <script>
+    <script>
     document.addEventListener('DOMContentLoaded', () => {
         const botones = document.querySelectorAll('.agregar-carrito');
         const contadorCarrito = document.getElementById('contador-carrito');
@@ -89,5 +97,5 @@
         });
     });
 </script>
-
+</body>
 </html>

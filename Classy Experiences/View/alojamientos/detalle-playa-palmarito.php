@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Isla Magata</title>
-    <link rel="stylesheet" href="../../Css/estilo-servicios.css"> <!-- Asegúrate que esté bien enlazado -->
+    <title>Palmarito Beach</title>
+    <link rel="stylesheet" href="../../Css/estilo-servicios.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header class="contenedor">
         <a class="logo" href="../../View/index.php">
-            <img src="../../Media/classy.png" alt="logo">
+            <img src="../../img/classy.png" alt="logo">
             <h2 class="nombredelaempresa">Classy</h2>
         </a>
-          <nav>
+         <nav>
             <a href="../../View/index.php">Home</a>
             <a href="../../View/servicios.php">Servicios</a>
             <a href="../../View/conocenos.php">Conócenos</a>
@@ -21,7 +21,7 @@
             <a href="../../View/resenas.php">Reseñas</a>
             <a href="../../View/login.php">Iniciar Sesion</a>
             <a href="../../Controller/LogoutController.php">Cerrar sesión</a>
-             <a href="../../View/carrito.php" class="carrito">
+            <a href="../../View/carrito.php" class="carrito">
                 <i class="fas fa-shopping-cart"></i>
                 <span class="contador" id="contador-carrito">0</span> 
             </a>
@@ -31,23 +31,29 @@
     <main class="contenedor">
         <section class="tarjeta-detalle-producto">
             <figure class="contenedor-imagen">
-                <img src="../../Media/alojamientos/magata.webp" alt="Isla Magata" style="width: 100%; border-radius: 15px;">
+                <img src="../../img/alojamientos/299801132.jpg" alt="Palmarito Beach" style="width: 100%; border-radius: 15px;">
             </figure>
 
             <div class="informacion-producto">
-                <h2 class="titulo-secundario">Isla Magata</h2><br>
-                <p class="descripcion">
-                    Descubre la magia de Isla Magata, un destino exclusivo en el Caribe colombiano que combina naturaleza y lujo en un solo lugar. 
-                    Rodeada de aguas cristalinas y arenas blancas, Isla Magata es el escape perfecto para relajarse y disfrutar del paraíso.
-                    Ofrece bungalows frente al mar, actividades acuáticas y una experiencia gastronómica única para sus visitantes.
-                    Ideal para desconectarse y disfrutar de la paz que solo una isla privada puede ofrecer.
-                </p>
-<br>
-                <p class="precio">
-                    <strong>Precio por noche:</strong> $250.000 COP
-                </p>
+                <h2 class="titulo-secundario">Palmarito Beach</h2><br>
+              <p class="descripcion">
+    Vive la mejor experiencia de playa en Palmarito Beach, un exclusivo club frente al mar con ambiente tropical y moderno.
+    Disfruta de la brisa caribeña mientras saboreas cócteles exóticos y comida típica con un toque de lujo.
+    Un lugar ideal para pasar el día, tomar el sol y gozar de una atención personalizada en Cartagena.
+    <ul class="lista-detalle">
+        <li>Camas y cabañas frente al mar</li>
+        <li>Bar y restaurante con menú variado</li>
+        <li>Música en vivo y DJs</li>
+        <li>Piscina de agua salada</li>
+        <li>Zonas VIP y servicio a la mesa</li>
+    </ul>
+</p>
 
-                <button class="boton-principal agregar-carrito" data-nombre="Isla Magata" data-precio="250000">
+                <br>
+                <p class="precio">
+                    <strong>Precio por noche:</strong> $500.000 COP
+                </p>
+                <button class="boton-principal agregar-carrito" data-nombre="Palmarito Beach" data-precio="500000">
                     <i class="fa-solid fa-cart-plus"></i> Agregar al carrito
                 </button>
             </div>
@@ -57,6 +63,8 @@
     <footer class="contenedor">
         <p>&copy; 2025 Cartagena Luxury. Todos los derechos reservados.</p>
     </footer>
+
+    <!-- Script para agregar al carrito -->
    <script>
     document.addEventListener('DOMContentLoaded', () => {
         const botones = document.querySelectorAll('.agregar-carrito');
@@ -89,5 +97,5 @@
         });
     });
 </script>
-</body>
+
 </html>

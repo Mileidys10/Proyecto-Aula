@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '../Model/Entity/Conductor.php';
-require_once __DIR__ . '../Config/Conexion.php';
+require_once __DIR__ . '/../Entity/Conductor.php';
+require_once __DIR__ . '/../../Config/Conexion.php';
 class crudConductor {
     public static function agregar(Conductor $conductor) {
         $conn = Conexion::conectar();

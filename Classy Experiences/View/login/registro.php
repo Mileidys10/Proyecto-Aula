@@ -10,7 +10,7 @@
 
 <body>
     <div class="form">
-        <form action="../Controller/UsuarioController.php" method="post">
+        <form action="../../Controller/UsuarioController.php" method="post">
             <input type="hidden" name="accion" value="registrar">
 
             <h2>Registro</h2>

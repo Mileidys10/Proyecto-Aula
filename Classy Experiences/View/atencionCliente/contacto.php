@@ -3,24 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <title>Contacto - Atención al Cliente</title>
-   <link rel="stylesheet" href="../Css/resenas.css">
+   <link rel="stylesheet" href="../../Css/atencion-cliente.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css"
+        integrity="sha512-9xKTRVabjVeZmc+GUW8GgSmcREDunMM+Dt/GrzchfN8tkwHizc5RP4Ok/MXFFy5rIjJjzhndFScTceq5e6GvVQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
         <a class="logo" href="../View/index.php">
-            <img src="../Media/classy.png" alt="logo">
+            <img src="../../img/classy.png" alt="logo">
             <h2 class="nombredelaempresa">Classy</h2>
         </a>
     
         <nav>
             
-            <a href="../View/index.php">Home</a>
-            <a href="../View/servicios.php">Servicios</a>
-            <a href="../View/conocenos.php">Conócenos</a>
-            <a href="../View/redes.php">Redes Sociales</a>
-            <a href="../reseñas/resenas.php">Reseñas</a>
-            <a href="../login/login.php">Iniciar Sesion</a>
- <a href="../View/carrito.php" class="carrito">
+            <a href="../../View/index.php">Home</a>
+            <a href="../../View/servicios.php">Servicios</a>
+            <a href="../../View/conocenos.php">Conócenos</a>
+            <a href="../../View/redes.php">Redes Sociales</a>
+            <a href="../../reseñas/resenas.php">Reseñas</a>
+            <a href="../../View/login/login.php">Iniciar Sesion</a>
+ <a href="../../View/carrito.php" class="carrito">
                 <i class="fas fa-shopping-cart"></i>
                 <span class="contador" id="contador-carrito">0</span> 
             </a>
