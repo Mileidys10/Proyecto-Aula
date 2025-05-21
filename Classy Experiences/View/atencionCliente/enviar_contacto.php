@@ -2,9 +2,9 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require '../phpmailer/src/Exception.php';
-require '../phpmailer/src/PHPMailer.php';
-require '../phpmailer/src/SMTP.php';
+require '../../Model/logic/phpmailer/src/Exception.php';
+require '../../Model/logic/phpmailer/src/PHPMailer.php';
+require '../../Model/logic/phpmailer/src/SMTP.php';
 
 if (isset($_POST["enviar"])) {
     $nombre = $_POST["nombre"];

@@ -1,10 +1,18 @@
 <?php
-require_once '../Config/Conexion.php';
-require_once __DIR__ . '/../Model/Usuario.php';
-require_once __DIR__ . '/../Model/CRUD/crudUsuario.php';
+require_once __DIR__ . '/../../Model/CRUD/crudUsuario.php';
+require_once __DIR__ . '/../../Model/Entity/Usuario.php';
 
 // Obtener todos los usuarios como array de objetos
-$usuarios = crudUsuario::obtenerTodos();
+if (isset($_GET['tipo']) && $_GET['tipo'] !== '') {
+    $usuarios = array_filter(
+        crudUsuario::obtenerTodos(),
+        function($usuario) {
+            return $usuario->getUserType() === $_GET['tipo'];
+        }
+    );
+} else {
+    $usuarios = crudUsuario::obtenerTodos();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +21,7 @@ $usuarios = crudUsuario::obtenerTodos();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Usuarios</title>
-    <link rel="stylesheet" href="../Css/login.css">
+    <link rel="stylesheet" href="../../Css/login.css">
     <style>
         table {
             width: 100%;
@@ -58,7 +66,18 @@ $usuarios = crudUsuario::obtenerTodos();
 </head>
 
 <body>
-    <h1>Editar Usuarios</h1>
+    <h1>Editar Usuarios</h1>  
+    <form method="GET" style="margin-bottom: 15px;">
+    <label for="tipo">Filtrar por tipo de usuario:</label>
+    <select name="tipo" id="tipo">
+        <option value="">-- Todos --</option>
+        <option value="admin" <?= (isset($_GET['tipo']) && $_GET['tipo'] == 'admin') ? 'selected' : '' ?>>Admin</option>
+        <option value="user" <?= (isset($_GET['tipo']) && $_GET['tipo'] == 'user') ? 'selected' : '' ?>>User</option>
+        <option value="conductor" <?= (isset($_GET['tipo']) && $_GET['tipo'] == 'conductor') ? 'selected' : '' ?>>Conductor</option>
+        <option value="guia_turistico" <?= (isset($_GET['tipo']) && $_GET['tipo'] == 'guia_turistico') ? 'selected' : '' ?>>Guía Turístico</option>
+    </select>
+    <button type="submit" class="btn">Mostrar</button>
+</form>
     <table>
         <thead>
             <tr>
@@ -80,7 +99,7 @@ $usuarios = crudUsuario::obtenerTodos();
                         <td class='editable' data-id='<?= $usuario->getId() ?>' data-field='user_type'><?= htmlspecialchars($usuario->getUserType()) ?></td>
                         <td class='editable' data-id='<?= $usuario->getId() ?>' data-field='password'>********</td>
                         <td>
-                        <form action="../Controller/UsuarioController.php" method="post" style="display:inline;">
+                        <form action="../../Controller/UsuarioController.php" method="post" style="display:inline;">
                             <input type="hidden" name="accion" value="eliminar">
                             <input type="hidden" name="id" value="<?= $usuario->getId() ?>">
                             <button type="submit" class="btn btn-danger" onclick="return confirm('¿Seguro que deseas eliminar este usuario?');">Eliminar</button>
@@ -91,9 +110,11 @@ $usuarios = crudUsuario::obtenerTodos();
             <?php endif; ?>
         </tbody>
     </table>
+
+
     <button class="btn" id="guardarCambios">Guardar Cambios</button>
-    <a href="../admin/admin.php" class="btn">Volver Atrás</a>
-    <script src="JS/usuarios.js"></script>
+   <br><br> <a href="../admin/admin.php" class="btn">Volver Atrás</a>
+    <script src="../../JS/usuarios.js"></script>
 </body>
 
 </html>

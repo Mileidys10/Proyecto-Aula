@@ -1,7 +1,6 @@
 <?php
-require_once '../Config/Conexion.php';
-require_once __DIR__ . '/../Model/Rutas.php';
-require_once __DIR__ . '/../Model/CRUD/crudRutas.php';
+require_once '../../Controller/RutaController.php';
+require_once '../../Model/CRUD/crudRutas.php';
 
 // Obtener todos los usuarios como array de objetos
 $rutas = crudRutas::obtenerTodas();

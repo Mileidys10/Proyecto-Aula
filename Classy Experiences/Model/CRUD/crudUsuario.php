@@ -28,19 +28,19 @@ class crudUsuario
     
 
     public static function editar(Usuario $usuario)
-    {
-        $conn = Conexion::conectar();
-        $stmt = $conn->prepare("UPDATE usuarios SET nombre=?, email=?, password=?, user_type=? WHERE id=?");
-        $stmt->bind_param(
-            "ssssi",
-            $usuario->getNombre(),
-            $usuario->getEmail(),
-            $usuario->getPassword(),
-            $usuario->getUserType(),
-            $usuario->getId()
-        );
-        return $stmt->execute();
-    }
+{
+    $conn = Conexion::conectar();
+    $stmt = $conn->prepare("UPDATE usuarios SET nombre=?, email=?, password=?, user_type=? WHERE id=?");
+    $stmt->bind_param(
+        "ssssi",
+        $usuario->getNombre(),
+        $usuario->getEmail(),
+        $usuario->getPassword(),
+        $usuario->getUserType(),
+        $usuario->getId()
+    );
+    return $stmt->execute();
+}
 
     public static function eliminarUsuario($id)
     {
@@ -50,19 +50,18 @@ class crudUsuario
         return $stmt->execute();
     }
 
-    public static function obtenerUsuarioPorId($id)
-    {
-        $conn = Conexion::conectar();
-        $stmt = $conn->prepare("SELECT * FROM usuarios WHERE id=?");
-        $stmt->bind_param("i", $id);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $fila = $result->fetch_assoc();
-        if (!$fila) {
-            return null;
-        }
-        return self::cargar_usuario($fila);
+   public static function obtenerUsuarioPorId($id)
+{
+    $conn = Conexion::conectar();
+    $stmt = $conn->prepare("SELECT * FROM usuarios WHERE id = ?");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if ($row = $result->fetch_assoc()) {
+        return self::cargar_usuario($row);
     }
+    return null;
+}
     public static function obtenerNombrePorId($id)
     {
         $conn = Conexion::conectar();

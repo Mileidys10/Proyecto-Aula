@@ -33,11 +33,11 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
             <a href="../View/redes.php">Redes Sociales</a>
             <a href="../View/reseñas/resenas.php">Reseñas</a>
             <a href="../View/login/login.php">Iniciar Sesion</a>
-            <a href="../login/login.php">Iniciar Sesion</a>
-            <?php if ($usuarioActivo): ?>
-            <a href="../Controller/LogoutController.php">Cerrar sesión</a>
-            
-        <?php endif; ?>        </nav>
+                   <?php if (!$usuarioActivo): ?>
+    <a href="../View/login/login.php">Iniciar Sesion</a>
+<?php else: ?>
+    <a href="../Controller/LogoutController.php">Cerrar sesión</a>
+<?php endif; ?>     </nav>
         <a href="../View/carrito.php" class="carrito">
                 <i class="fas fa-shopping-cart"></i>
                 <span class="contador" id="contador-carrito">0</span> 

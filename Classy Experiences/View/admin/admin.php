@@ -33,7 +33,7 @@ $usuarioActivo = true; // Esto habilita el botón de cerrar sesión
     <!-- Header -->
     <header>
         <div class="logo">
-            <img src="../Media/classy.png" alt="Logo"> 
+            <img src="../../img/classy.png" alt="Logo"> 
             <span>Panel de Administración</span>
         </div>
         <nav>
@@ -96,7 +96,7 @@ $usuarioActivo = true; // Esto habilita el botón de cerrar sesión
     <!-- Footer -->
     <footer>
         <div class="container">
-            <img src="../Media/classy.png" alt="Pie de página">
+            <img src="../img/classy.png" alt="Pie de página">
         </div>
     </footer>
 

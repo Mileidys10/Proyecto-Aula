@@ -10,7 +10,7 @@
 <body>
     <header class="contenedor">
         <a class="logo" href="../../View/index.php">
-            <img src="../../Media/classy.png" alt="logo">
+            <img src="../../img/classy.png" alt="logo">
             <h2 class="nombredelaempresa">Classy</h2>
         </a>
         <nav>
@@ -31,7 +31,7 @@
     <main class="contenedor">
         <section class="tarjeta-detalle-producto">
             <figure class="contenedor-imagen">
-                <img src="../../Media/botes/catamaranl.jpeg" alt="Catamarán Lagoon 52 FT" style="width: 100%; border-radius: 15px;">
+                <img src="../../img/botes/catamaranl.jpeg" alt="Catamarán Lagoon 52 FT" style="width: 100%; border-radius: 15px;">
             </figure>
 
             <div class="informacion-producto">
@@ -56,35 +56,6 @@
         <p>&copy; 2025 Cartagena Luxury. Todos los derechos reservados.</p>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const botones = document.querySelectorAll('.agregar-carrito');
-            const contadorCarrito = document.getElementById('contador-carrito');
-
-            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-            contadorCarrito.textContent = carrito.length;
-
-            botones.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const nombre = btn.getAttribute('data-nombre');
-                    const precio = parseFloat(btn.getAttribute('data-precio'));
-
-                    const servicio = { nombre, precio };
-                    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-
-                    const existe = carrito.some(item => item.nombre === servicio.nombre);
-                    if (existe) {
-                        alert(`"${nombre}" ya está en el carrito.`);
-                    } else {
-                        carrito.push(servicio);
-                        localStorage.setItem('carrito', JSON.stringify(carrito));
-                        alert(`"${nombre}" agregado al carrito.`);
-                    }
-
-                    contadorCarrito.textContent = carrito.length;
-                });
-            });
-        });
-    </script>
+    <script src="../JS/servicios_carrito.js"></script>
 </body>
 </html>

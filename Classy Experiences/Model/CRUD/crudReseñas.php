@@ -1,7 +1,7 @@
 <?php
-require_once __DIR__ . '/../Config/Conexion.php';
-
-class Reseña {
+require_once __DIR__ . '/../../Config/Conexion.php';
+require_once __DIR__ . '/../Entity/Reseña.php';
+class crudReseñas {
 
     public function agregarReseña($nombre, $comentario, $puntuacion) {
         $conn = Conexion::conectar();

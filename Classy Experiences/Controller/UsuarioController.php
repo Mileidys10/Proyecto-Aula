@@ -13,6 +13,58 @@ require_once __DIR__ . '/../Model/Entity/Admin.php';
 require_once __DIR__ . '/../Model/Entity/Usuario.php';
 
 
+if (
+    $_SERVER['REQUEST_METHOD'] === 'POST' &&
+    isset($_SERVER['CONTENT_TYPE']) &&
+    strpos($_SERVER['CONTENT_TYPE'], 'application/json') !== false
+) {
+    file_put_contents(
+        __DIR__ . '/debug.log',
+        print_r([
+            'method'       => $_SERVER['REQUEST_METHOD'],
+            'content_type' => $_SERVER['CONTENT_TYPE'] ?? '(no viene)',
+            'raw'          => file_get_contents('php://input'),
+        ], true),
+        FILE_APPEND
+    );
+
+    header('Content-Type: application/json');
+    $data = json_decode(file_get_contents('php://input'), true);
+
+    if (!$data || !is_array($data)) {
+        echo json_encode(['success' => false, 'message' => 'Datos inválidos']);
+        exit;
+    }
+
+    $success = true;
+    foreach ($data as $cambio) {
+        $usuario = crudUsuario::obtenerUsuarioPorId($cambio['id']);
+        if (!$usuario) {
+            $success = false;
+            continue;
+        }
+        switch ($cambio['field']) {
+            case 'nombre':
+                $usuario->setNombre($cambio['value']);
+                break;
+            case 'email':
+                $usuario->setEmail($cambio['value']);
+                break;
+            case 'password':
+                // Hashea la contraseña si lo deseas
+                $usuario->setPassword(password_hash($cambio['value'], PASSWORD_DEFAULT));
+                break;
+            case 'user_type':
+                $usuario->setUserType($cambio['value']);
+                break;
+        }
+        if (!crudUsuario::editar($usuario)) {
+            $success = false;
+        }
+    }
+    echo json_encode(['success' => $success]);
+    exit;
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $accion = $_POST['accion'];
@@ -22,7 +74,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $email = $_POST['email'];
         $password = $_POST['password'];
         $confirm_password = $_POST['confirm_password'];
-        $user_type = $_POST['tipo_usuario'];
+       if (isset($_POST['desde_admin']) && $_POST['desde_admin'] == "1") {
+    $user_type = $_POST['tipo_usuario'];
+} else {
+    $user_type = 'user';
+}
 
         if ($password !== $confirm_password) {
             header("Location: ../login/registro.php?msg=¡Las contraseñas no coinciden!");
@@ -129,4 +185,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 }
-?>

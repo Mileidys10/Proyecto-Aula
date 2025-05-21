@@ -13,7 +13,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Css/estilo.css">
+    <link rel="stylesheet" href="../../Css/estilo.css">
     <title>Gracias por tu reseña</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
 
@@ -27,13 +27,14 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
         </a>
 
         <nav>
-        <a href="../View/index.php">Home</a>
-        <a href="../View/servicios.php">Servicios</a>
-        <a href="../View/conocenos.php">Conócenos</a>
+      <a href="../View/index.php">Home</a>
+            <a href="../View/servicios.php">Servicios</a>
+            <a href="../View/conocenos.php">Conócenos</a>
             <a href="../View/redes.php">Redes Sociales</a>
-            <a href="../reseñas/resenas.php">Reseñas</a>
-            <a href="../login/login.php">Iniciar Sesion</a>
-            <?php if ($usuarioActivo): ?>
+            <a href="../View/reseñas/resenas.php">Reseñas</a>
+                  <?php if (!$usuarioActivo): ?>
+    <a href="../View/login/login.php">Iniciar Sesion</a>
+<?php else: ?>
     <a href="../Controller/LogoutController.php">Cerrar sesión</a>
 <?php endif; ?>
  <a href="../View/carrito.php" class="carrito">

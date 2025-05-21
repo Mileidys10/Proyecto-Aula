@@ -10,7 +10,7 @@ if (!isset($_SESSION['id'])) {
 } else {
     echo "Sesión iniciada. Usuario: " . $_SESSION['nombre'];
 }
-require_once '../Controller/ReseñaController.php';
+require_once '../../Controller/ReseñaController.php';
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +18,7 @@ require_once '../Controller/ReseñaController.php';
 <head>
     <meta charset="UTF-8">
     <title>Agregar Reseña</title>
-    <link rel="stylesheet" href="../Css/resenas.css">
+    <link rel="stylesheet" href="../../Css/resenas.css">
 </head>
 <body>
     <main class="formulario-reseña">

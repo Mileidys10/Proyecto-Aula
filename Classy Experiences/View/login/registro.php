@@ -21,12 +21,7 @@
             <div class="form-group">
                 <input type="email" name="email" required placeholder="Ingresa tu correo" class="form-control">
             </div>
-            <div class="form-group">
-                <select name="tipo_usuario" id="" class="form-control">
-                    <option value="user">Usuario</option>
-                    <option value="admin">Administrador</option>
-                </select>
-            </div>
+           
             <div class="form-group">
                 <input type="password" name="password" required placeholder="Ingresa tu contraseña" class="form-control">
             </div>
