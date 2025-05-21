@@ -44,6 +44,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
                 <i class="fas fa-shopping-cart"></i>
                 <span class="contador" id="contador-carrito">0</span> 
             </a>
+            <a href= "../view/perfil.php" >Perfil</a>
         </nav>
     </header>
     
