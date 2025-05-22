@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../../Css/login.css">
 </head>
 <body>
+    
     <div class="form">
         <form action="../../Controller/UsuarioController.php" method="post">
             <h2>Iniciar Sesión</h2>
@@ -29,5 +30,16 @@
             <p>No tienes una cuenta? <a href="../login/registro.php">Registrate ahora</a></p>
         </form>
     </div>
+    <script>
+    // Solo ejecuta si hay carrito de visitante
+    const visitanteKey = 'carrito_usuario_0';
+    const userId = <?php echo (int)$_SESSION['id']; ?>;
+    const userKey = `carrito_usuario_${userId}`;
+    const carritoVisitante = localStorage.getItem(visitanteKey);
+    if (carritoVisitante && !localStorage.getItem(userKey)) {
+        localStorage.setItem(userKey, carritoVisitante);
+        localStorage.removeItem(visitanteKey);
+    }
+</script>
 </body>
 </html>

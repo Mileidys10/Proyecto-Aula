@@ -1,8 +1,5 @@
-
-<?php
-session_start();
-include '../Config/conexion.php'; // Ajusta esta ruta si es necesario
-
+<?php require_once __DIR__ . '/../../Controller/PerfilController.php'; ?>
+<?php require_once __DIR__ . '/../../Config/Conexion.php';
 $conn = Conexion::conectar();
 
 $nombre_usuario = $_SESSION['nombre']; // Asegúrate de tener esto en la sesión

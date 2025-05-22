@@ -25,23 +25,29 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
             <h2 class="nombredelaempresa">Classy</h2>
         </a>
 
-        <nav>
-          <a href="../view/atencionCliente/contacto.php">Atencion al cliente</a>
+         <nav>
+            
+           <a href="../View/atencionCliente/contacto.php">Atención al cliente</a>
             <a href="../View/index.php">Home</a>
             <a href="../View/servicios.php">Servicios</a>
             <a href="../View/conocenos.php">Conócenos</a>
             <a href="../View/redes.php">Redes Sociales</a>
             <a href="../View/reseñas/resenas.php">Reseñas</a>
-            <a href="../View/login/login.php">Iniciar Sesion</a>
-                   <?php if (!$usuarioActivo): ?>
+                     <?php if (!$usuarioActivo): ?>
     <a href="../View/login/login.php">Iniciar Sesion</a>
 <?php else: ?>
-    <a href="../Controller/LogoutController.php">Cerrar sesión</a>
-<?php endif; ?>     </nav>
-        <a href="../View/carrito.php" class="carrito">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="contador" id="contador-carrito">0</span> 
-            </a>
+    <a href="../Controller/LogoutController.php" title="Cerrar sesión">
+        <i class="fas fa-sign-out-alt"></i>
+    </a>
+<?php endif; ?>
+<a href="../View/carrito.php" class="carrito">
+    <i class="fas fa-shopping-cart"></i>
+    <span class="contador" id="contador-carrito">0</span> 
+</a>
+<a href="../view/perfil.php" title="Perfil">
+    <i class="fas fa-user"></i>
+</a>
+        </nav>
     </header>
 
     
@@ -87,5 +93,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
         <p>Email: classyexperiences@gmail.com</p>
         <p>Redes Sociales: @aclassyexperiences</p>
     </footer>
+     <script src="../JS/carrito.js"></script>
+
 </body>
 </html>
