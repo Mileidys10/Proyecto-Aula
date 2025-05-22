@@ -47,16 +47,19 @@ document.getElementById('guardarCambios').addEventListener('click', function () 
     });
 
     if (cambios.length > 0) {
-        console.log('Cambios a enviar:', cambios);
 
-        fetch('/Controller/UsuarioController.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(cambios)
-        })
-        .then(response => response.json())
+        fetch('../../Controller/UsuarioController.php', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(cambios)
+})
+.then(res => res.text()) // <-- primero obtenemos texto crudo
+.then(texto => {
+    let data = JSON.parse(texto); // aquí puede fallar si no es JSON
+    return data;
+})
         .then(data => {
             if (data.success) {
                 alert('Cambios guardados exitosamente.');

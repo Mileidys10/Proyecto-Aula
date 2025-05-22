@@ -155,7 +155,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
                 </p>
                 <div class="container-products">
                    
-                     <a href="../View/embarcaciones/detalle-yate-62ft.html" class="card-link">
+                     <a href="../View/embarcaciones/detalle-yate-62ft.php" class="card-link">
             <article class="card-product">
                 <figure class="container-img">
                     <img src="../img/botes/yate62ft.jpg" alt="Yate 62 FT">
@@ -169,7 +169,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
             </article>
         </a>
 
-        <a href="../View/embarcaciones/detalle-yate-ambar.html" class="card-link">
+        <a href="../View/embarcaciones/detalle-yate-ambar.php" class="card-link">
             <article class="card-product">
                 <figure class="container-img">
                     <img src="../img/botes/yateambar.jpg" alt="Yate Ambar">
@@ -183,7 +183,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
             </article>
         </a>
 
-        <a href="../View/embarcaciones/detalle-catamaran-lagoon.html" class="card-link">
+        <a href="../View/embarcaciones/detalle-catamaran-lagoon.php" class="card-link">
             <article class="card-product">
                 <figure class="container-img">
                     <img src="../img/botes/catamaranl.jpeg" alt="Catamaran Lagoon 52 FT">
@@ -197,7 +197,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
             </article>
         </a>
 
-        <a href="../View/embarcaciones/detalle-black-panther.html" class="card-link">
+        <a href="../View/embarcaciones/detalle-black-panther.php" class="card-link">
             <article class="card-product">
                 <figure class="container-img">
                     <img src="../img/botes/blackpanter.jpg" alt="Black Panther 41 FT">

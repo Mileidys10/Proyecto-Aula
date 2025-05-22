@@ -1,7 +1,6 @@
 <?php
 require_once '../../Controller/RutaController.php';
-require_once '../../Model/CRUD/crudRutas.php';
-
+require_once __DIR__ . '/../../Model/CRUD/crudRutas.php';
 // Obtener todos los usuarios como array de objetos
 $rutas = crudRutas::obtenerTodas();
 ?>
@@ -80,7 +79,7 @@ $rutas = crudRutas::obtenerTodas();
                 <td class='editable' data-id='<?= $ruta->getId() ?>' data-field='guia_id'><?= htmlspecialchars($ruta->getGuiaId()) ?></td>
                 <td class='editable' data-id='<?= $ruta->getId() ?>' data-field='conductor_id'><?= htmlspecialchars($ruta->getConductorId()) ?></td>
              <td>
-                <form action="../Controller/RutaController.php" method="post" style="display:inline;">
+                <form action="/Classy Experiences/Controller/RutaController.php" method="post" style="display:inline;">
                     <input type="hidden" name="accion" value="eliminar">
                     <input type="hidden" name="id" value="<?= $ruta->getId() ?>">
                     <button type="submit" class="btn btn-danger" onclick="return confirm('¿Seguro que deseas eliminar esta ruta?');">Eliminar</button>

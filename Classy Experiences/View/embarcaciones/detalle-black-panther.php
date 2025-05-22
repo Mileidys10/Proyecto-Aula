@@ -56,5 +56,6 @@
         <p>&copy; 2025 Cartagena Luxury. Todos los derechos reservados.</p>
     </footer>
 
-<script src="../JS/servicios_carrito.js"></script></body>
+<script src="../JS/servicios_carrito.js"></script>
+</body>
 </html>

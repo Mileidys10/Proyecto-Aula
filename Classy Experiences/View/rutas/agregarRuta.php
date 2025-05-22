@@ -15,7 +15,7 @@ $guias = crudUsuario::getUsuariosPorTipo('guia_turistico');
 </head>
 
 <body>
-    <form action="../Controller/RutaController.php" method="post">
+    <form action="/../Classy Experiences/Controller/RutaController.php" method="post">
         <input type="hidden" name="accion" value="agregar">
         <h2>Agregar Ruta</h2>
         <p class="msg"></p>

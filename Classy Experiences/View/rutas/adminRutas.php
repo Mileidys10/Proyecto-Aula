@@ -20,9 +20,9 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo_usuario'] !== 'admin') {
     <title>CRUD DE RUTAS</title>
 </head>
 <body>
-    <a href="../View/index.php">Home</a>
-            <a href="../View/rutas/agregarRuta">Agregar Ruta</a>
-            <a href="../View/rutas/mostrarRutas.php">Mostrar Rutas</a>
-            <a href="../View/rutas/adminRutas.php">Inicio</a>
+            <a href="../../View/admin/admin.php">Home</a>
+            <a href="../rutas/agregarRuta.php">Agregar Ruta</a>
+            <a href="../rutas/mostrarRutas.php">Mostrar Rutas</a>
+            <a href="../rutas/adminRutas.php">Inicio</a>
 </body>
 </html>

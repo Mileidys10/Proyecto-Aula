@@ -50,7 +50,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
 <p>A continuación serás redirigido a la pagina de reseñas.</p>
 
         </h3>
-        <button><a href="../../View/reseñas/resenas.php">Volver al inicio</a></button>
+        <button><a href="../View/index.php">Volver al inicio</a></button>
     </main>
 
 </body>
