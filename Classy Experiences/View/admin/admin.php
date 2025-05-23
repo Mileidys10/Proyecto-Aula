@@ -93,7 +93,7 @@ $ingresosMes = crudEstadisticas::ingresosMes($mesActual, $anioActual);
                 </a>
             </div>
             <div class="cartas">
-                <a href="reservas.php">
+                <a href="mostrarfacturas.php">
                     <h3>Ver Facturas</h3>
                     <p>Revisa las facturas.</p>
                 </a>

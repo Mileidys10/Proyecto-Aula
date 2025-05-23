@@ -10,3 +10,69 @@ Array
     [content_type] => application/json
     [raw] => [{"id":"51","field":"nombre","value":"sapa"}]
 )
+Array
+(
+    [method] => POST
+    [content_type] => application/json
+    [raw] => [{"id":"65","field":"email","value":"martha@gmail.com"}]
+)
+Array
+(
+    [method] => POST
+    [content_type] => application/json
+    [raw] => [{"id":"65","field":"email","value":"martha@gmail.com"}]
+)
+Array
+(
+    [method] => POST
+    [content_type] => application/json
+    [raw] => [{"id":"65","field":"email","value":"martha@gmail.com"}]
+)
+Array
+(
+    [method] => POST
+    [content_type] => application/json
+    [raw] => [{"id":"65","field":"email","value":"martha@gmail.com"}]
+)
+Array
+(
+    [method] => POST
+    [content_type] => application/json
+    [raw] => [{"id":"65","field":"email","value":"martha@gmail.com"}]
+)
+Array
+(
+    [method] => POST
+    [content_type] => application/json
+    [raw] => [{"id":"65","field":"email","value":"martha@gmail.com"}]
+)
+Array
+(
+    [method] => POST
+    [content_type] => application/json
+    [raw] => [{"id":"65","field":"email","value":"martha@gmail.com"}]
+)
+Array
+(
+    [method] => POST
+    [content_type] => application/json
+    [raw] => [{"id":"65","field":"email","value":"martha@gmail.com"}]
+)
+Array
+(
+    [method] => POST
+    [content_type] => application/json
+    [raw] => [{"id":"65","field":"email","value":"martha@gmail.com"}]
+)
+Array
+(
+    [method] => POST
+    [content_type] => application/json
+    [raw] => [{"id":"65","field":"email","value":"martha@gmail.com"}]
+)
+Array
+(
+    [method] => POST
+    [content_type] => application/json
+    [raw] => [{"id":"65","field":"email","value":"martha@gmail.com"}]
+)

@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         if (totalSpan) {
             totalSpan.textContent = `Total: $${total.toFixed(2)}`;
+            document.getElementById('total').textContent = 'Total: $' + total.toLocaleString('es-CO', { minimumFractionDigits: 0 });
         }
         document.querySelectorAll('.eliminar-item').forEach(btn => {
             btn.addEventListener('click', function () {
@@ -225,5 +226,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }).render('#paypal-button-container');
     }
+
+    let total = 500000;
+    let totalFormateado = total.toLocaleString('es-CO', { minimumFractionDigits: 0 });
+    console.log(totalFormateado); // "500.000"
 
 });

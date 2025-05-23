@@ -1,55 +1,129 @@
+/* === Estilo visual para el carrito de compras, inspirado en index-o.css === */
+
 body {
-            font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
-            padding: 20px;
-            color: #333;
-        }
+    background: #f9f9f9;
+    font-family: 'Roboto', sans-serif;
+    color: #222;
+}
 
-        #carrito-container {
-            max-width: 600px;
-            margin: auto;
-        }
+#lista-carrito {
+    list-style: none;
+    padding: 0;
+    margin: 40px auto 0 auto;
+    max-width: 600px;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    overflow: hidden;
+}
 
-        .item {
-            background-color: #fff;
-            border-radius: 10px;
-            padding: 15px 20px;
-            margin-bottom: 15px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+#lista-carrito li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 22px;
+    border-bottom: 1px solid #eee;
+    font-size: 1.15em;
+}
 
-        .item p {
-            margin: 0;
-            font-size: 16px;
-        }
+#lista-carrito li:last-child {
+    border-bottom: none;
+}
 
-        .item button {
-            background-color: #a65b4b;
-            color: #fff;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            font-size: 14px;
-        }
+#total {
+    max-width: 600px;
+    margin: 30px auto 10px;
+    font-size: 1.4em;
+    font-weight: bold;
+    text-align: right;
+    color: #A65B4B;
+    background: #fff;
+    padding: 12px 22px;
+    border-radius: 0 0 14px 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
 
-        .item button:hover {
-            background-color: #843f33;
-        }
+#btn-simular-pago, #factura button {
+    background-color: #A65B4B;
+    color: #fff;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 18px auto 0 auto;
+    display: block;
+    transition: background 0.2s, transform 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
 
-        #total {
-            max-width: 600px;
-            margin: 30px auto 10px;
-            font-size: 20px;
-            font-weight: bold;
-            text-align: right;
-        }
+#btn-simular-pago:hover, #factura button:hover {
+    background-color: #552f27;
+    transform: scale(1.04);
+}
 
-        #paypal-button-container {
-            max-width: 600px;
-            margin: 20px auto;
-        }
+#paypal-button-container {
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+#factura {
+    max-width: 600px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 30px 24px;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+    text-align: left;
+}
+
+#factura h2 {
+    color: #A65B4B;
+    font-size: 2em;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+#factura p, #factura ul, #factura-total {
+    font-size: 1.1em;
+    color: #333;
+}
+
+#factura ul {
+    padding-left: 18px;
+    margin-bottom: 18px;
+}
+
+#factura-total {
+    color: #007b5e;
+    font-size: 1.2em;
+    margin-top: 18px;
+}
+
+a[href="index.php"] {
+    display: block;
+    text-align: center;
+    margin: 36px auto 0 auto;
+    color: #A65B4B;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.2s;
+}
+
+a[href="index.php"]:hover {
+    color: #552f27;
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    #lista-carrito, #factura, #total, #paypal-button-container {
+        max-width: 98vw;
+        padding: 10px;
+    }
+    #factura {
+        padding: 18px 6px;
+    }
+}

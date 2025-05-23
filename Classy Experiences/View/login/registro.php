@@ -21,7 +21,7 @@
             <div class="form-group">
                 <input type="email" name="email" required placeholder="Ingresa tu correo" class="form-control">
             </div>
-           
+
             <div class="form-group">
                 <input type="password" name="password" required placeholder="Ingresa tu contraseña" class="form-control">
             </div>
@@ -32,6 +32,17 @@
             <p>Ya tienes una cuenta? <a href="../login/login.php">Inicia sesión ahora</a></p>
         </form>
     </div>
+
+
+    <?php if (isset($_GET['msg'])): ?>
+        <script>
+            alert("<?= htmlspecialchars($_GET['msg']) ?>");
+            if (window.history.replaceState) {
+                const url = window.location.href.split('?')[0];
+                window.history.replaceState({}, document.title, url);
+            }
+        </script>
+    <?php endif; ?>
 </body>
 
 </html>

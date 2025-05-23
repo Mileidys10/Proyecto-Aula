@@ -1,25 +1,16 @@
 <?php
-require_once '../Config/Conexion.php';
+
+require_once __DIR__ . '/../Model/CRUD/crudEstadisticas.php';
 
 class EstadisticasController {
     public static function obtenerEstadisticas() {
-        $conn = Conexion::conectar();
-
-        // Total de servicios publicados
-        $resServicios = $conn->query("SELECT COUNT(*) AS total FROM servicios");
-        $totalServicios = $resServicios->fetch_assoc()['total'];
-
-        // Total de imágenes subidas
-        $resImagenes = $conn->query("SELECT COUNT(*) AS total FROM imagenes_servicio");
-        $totalImagenes = $resImagenes->fetch_assoc()['total'];
-
+        $mesActual = date('n');
+        $anioActual = date('Y');
         return [
-            'totalServicios' => $totalServicios,
-            'totalImagenes' => $totalImagenes
+            'reservasMes' => crudEstadisticas::reservasMes($mesActual, $anioActual),
+            'ingresosMes' => crudEstadisticas::ingresosMes($mesActual, $anioActual),
+            'totalReservas' => crudEstadisticas::totalReservas(),
+            'totalIngresos' => crudEstadisticas::totalIngresos(),
         ];
     }
 }
-?>
-
-
-

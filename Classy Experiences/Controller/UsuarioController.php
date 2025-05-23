@@ -80,13 +80,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user_type = 'user';
 }
 
+        // Contraseñas no coinciden
         if ($password !== $confirm_password) {
-            header("Location: ../login/registro.php?msg=¡Las contraseñas no coinciden!");
+            header("Location: /classy/View/login/registro.php?msg=¡Las contraseñas no coinciden!");
             exit;
         }
 
+        // Correo ya registrado
         if (UsuarioService::existeEmail($email)) {
-            header("Location: ../login/registro.php?msg=¡El correo ya está registrado!");
+            header("Location: /classy/View/login/registro.php?msg=¡El correo ya está registrado!");
             exit;
         }
 
@@ -98,38 +100,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $id_usuario = crudUsuario::agregar($usuario); // <-- debe retornar el ID insertado
 
-        if ($id_usuario) {
-            // Guardar datos extra según el tipo
-            if ($user_type === 'conductor') {
-                $conductor = new Conductor();
-                $conductor->setId($id_usuario);
-                $conductor->setLicencia($_POST['licencia'] ?? '');
-                $conductor->setVehiculo($_POST['vehiculo'] ?? '');
-                crudConductor::agregar($conductor);
-            }
-            if ($user_type === 'guia_turistico') {
-                $guia = new GuiaTuristico();
-                $guia->setId($id_usuario);
-                $guia->setEspecialidad($_POST['especialidad'] ?? '');
-                $guia->setIdiomas($_POST['idiomas'] ?? '');
-                crudGuiaTuristico::agregar($guia);
-            }
-
-            if ($user_type === 'admin') {
-                $admin = new Admin();
-                $admin->setId($id_usuario);
-                $admin->setCargo($_POST['cargo'] ?? '');
-                crudAdmin::agregar($admin);
-            }
-            // Redirección según si es admin o no
-            if (isset($_POST['desde_admin']) && $_POST['desde_admin'] == "1") {
-                header("Location: ../View/admin/mostrar_usuario.php?msg=¡Usuario registrado exitosamente!");
-            } else {
-                header("Location: ../View/login/login.php?msg=¡Registro exitoso! Inicia sesión.");
-            }
-        } else {
-            header("Location: ../login/registro.php?msg=¡Error al registrar el usuario!");
+        // Guardar datos extra según el tipo
+        if ($user_type === 'conductor') {
+            $conductor = new Conductor();
+            $conductor->setId($id_usuario);
+            $conductor->setLicencia($_POST['licencia'] ?? '');
+            $conductor->setVehiculo($_POST['vehiculo'] ?? '');
+            crudConductor::agregar($conductor);
         }
+        if ($user_type === 'guia_turistico') {
+            $guia = new GuiaTuristico();
+            $guia->setId($id_usuario);
+            $guia->setEspecialidad($_POST['especialidad'] ?? '');
+            $guia->setIdiomas($_POST['idiomas'] ?? '');
+            crudGuiaTuristico::agregar($guia);
+        }
+
+        if ($user_type === 'admin') {
+            $admin = new Admin();
+            $admin->setId($id_usuario);
+            $admin->setCargo($_POST['cargo'] ?? '');
+            crudAdmin::agregar($admin);
+        }
+        // Redirección según si es admin o no
+        if (isset($_POST['desde_admin']) && $_POST['desde_admin'] == "1") {
+            header("Location: /classy/View/admin/mostrar_usuario.php?msg=¡Usuario registrado exitosamente!");
+            exit;
+        }
+
+        // Registro exitoso (usuario normal)
+        header("Location: /classy/View/login/login.php?msg=¡Registro exitoso! Inicia sesión.");
         exit;
     }
 

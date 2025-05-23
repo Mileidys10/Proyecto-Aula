@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro</title>
+    <title>Login</title>
     <link rel="stylesheet" href="../../Css/login.css">
 </head>
 <body>
@@ -43,5 +43,17 @@
         localStorage.removeItem(visitanteKey);
     }
 </script>
+
+<?php if (isset($_GET['msg'])): ?>
+<script>
+    alert("<?= htmlspecialchars($_GET['msg']) ?>");
+    if (window.history.replaceState) {
+        const url = window.location.href.split('?')[0];
+        window.history.replaceState({}, document.title, url);
+    }
+</script>
+<?php endif; ?>
+
+
 </body>
 </html>

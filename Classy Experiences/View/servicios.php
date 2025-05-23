@@ -227,6 +227,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
                 </p>
                 <div class="container-products">
                    
+                <a href="../View/toures/detalle-sunset&night-tour.php">
                     <article class="card-product">
                         <figure class="container-img">
                             <img src="../img/toures/sunset.jpg" alt="Bahía tour">
@@ -238,7 +239,9 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
                             <button><i class="fa-solid fa-code-compare"></i></button>
                         </div>
                     </article>
-                   
+                    </a>
+
+                    <a href="toures/detalle-classy-romantic.php">
                     <article class="card-product">
                         <figure class="container-img">
                             <img src="../img/toures/pedidademano.jpg" alt="Classy Romantic">
@@ -250,7 +253,9 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
                             <button><i class="fa-solid fa-code-compare"></i></button>
                         </div>
                     </article>
-                   
+                   </a>
+
+                   <a href="toures/detalle-daytour.php">
                     <article class="card-product">
                         <figure class="container-img">
                             <img src="../img/toures/daytour.jpg" alt="Day Tour">
@@ -262,7 +267,9 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
                             <button><i class="fa-solid fa-code-compare"></i></button>
                         </div>
                     </article>
-                   
+                   </a>
+
+                   <a href="toures/detalle-magic-dream.php">
                     <article class="card-product">
                         <figure class="container-img">
                             <img src="../img/toures/islaparadisiaca.jpg" alt="Magic Dream Island">
@@ -274,6 +281,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
                             <button><i class="fa-solid fa-code-compare"></i></button>
                         </div>
                     </article>
+                    </a>
                 </div>
             </section>
 
