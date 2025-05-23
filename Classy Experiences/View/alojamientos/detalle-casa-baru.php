@@ -2,7 +2,7 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-$usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
+$usuarioActivo = isset($_SESSION['id']); 
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -10,7 +10,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Casa Baru</title>
-    <link rel="stylesheet" href="../../Css/estilo-servicios.css"> <!-- Asegúrate que esté bien enlazado -->
+    <link rel="stylesheet" href="../../Css/estilo-servicios.css"> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -46,7 +46,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
     <main class="contenedor">
         <section class="tarjeta-detalle-producto">
             <figure class="contenedor-imagen">
-                <img src="../../img/alojamientos/magata.webp" alt="Isla Magata" style="width: 100%; border-radius: 15px;">
+                <img src="../../img/alojamientos/CasaBaruLaPaz.jpg" alt="Isla Magata" style="width: 100%; border-radius: 15px;">
             </figure>
 
             <div class="informacion-producto">
@@ -67,10 +67,10 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
 </p>
 <br>
                 <p class="precio">
-                    <strong>Precio por noche:</strong> $200.000 COP
+                    <strong>Precio por noche:</strong> $1.200.000 COP
                 </p>
 
-                <button class="agregar-carrito boton-principal" data-nombre="Apto-Ferrara" data-precio="200000">
+                <button class="agregar-carrito boton-principal" data-nombre="Casa-Baru" data-precio="1200000">
                     <i class="fa-solid fa-cart-plus"></i> Agregar al carrito
                 </button>
             </div>

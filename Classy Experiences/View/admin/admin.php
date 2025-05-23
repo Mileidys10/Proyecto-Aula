@@ -74,10 +74,10 @@ $ingresosMes = crudEstadisticas::ingresosMes($mesActual, $anioActual);
             <p>Total de servicios publicados: <strong>12</strong></p>
         </div>
         <div class="summary-card">
-            <p>Reservas este mes: <strong><?= $reservasMes ?></strong></p>
+            <p>Ventas este mes: <strong><?= $reservasMes ?></strong></p>
         </div>
         <div class="summary-card">
-            <p>Ingresos aproximados: <strong>$<?= number_format($ingresosMes, 0, ',', '.') ?></strong> cop</p>
+            <p>Ingresos aproximados para este mes: <strong>$<?= number_format($ingresosMes, 0, ',', '.') ?></strong> cop</p>
         </div>
     </div>
 </section>

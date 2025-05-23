@@ -177,8 +177,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($accion === 'eliminar') {
         $id = $_POST['id'];
 
-        crudUsuario::eliminarUsuario($id);
-        header("Location: ../View/admin/mostrar_usuario.php");
+        $seElimino = crudUsuario::eliminarUsuario($id);
+
+        if ($seElimino) {
+            header("Location: ../View/admin/mostrar_usuario.php");
+        }else{
+            $_SESSION['error'] = "No se pudo eliminar el usuario.";
+            header("Location: ../View/admin/mostrar_usuario.php");
+        }
+        
         exit;
     }
     if ($accion === 'cerrar_sesion') {

@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../../Model/CRUD/crudUsuario.php';
 require_once __DIR__ . '/../../Model/Entity/Usuario.php';
-
+session_start();
 // Obtener todos los usuarios como array de objetos
 if (isset($_GET['tipo']) && $_GET['tipo'] !== '') {
     $usuarios = array_filter(
@@ -23,6 +23,7 @@ if (isset($_GET['tipo']) && $_GET['tipo'] !== '') {
     <title>Editar Usuarios</title>
     <link rel="stylesheet" href="../../Css/adminrutas.css">
     <link rel="stylesheet" href="../../Css/mostrar_usuario.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         table {
             width: 100%;
@@ -139,3 +140,15 @@ if (isset($_GET['tipo']) && $_GET['tipo'] !== '') {
 </body>
 
 </html>
+
+<?php if(isset($_SESSION['error'])): ?>
+    <script>
+        Swal.fire({
+  icon: "error",
+  title: "Oops...",
+  text: "<?= $_SESSION['error'] ?>",
+  footer: '<a href="#">Why do I have this issue?</a>'
+});
+    </script>
+    <?php unset($_SESSION['error']); ?>
+<?php endif; ?>

@@ -44,10 +44,16 @@ class crudUsuario
 
     public static function eliminarUsuario($id)
     {
-        $conn = Conexion::conectar();
+        try {
+         $conn = Conexion::conectar();
         $stmt = $conn->prepare("DELETE FROM usuarios WHERE id=?");
-        $stmt->bind_param("i", $id);
+        $stmt->bind_param("i", $id);  
         return $stmt->execute();
+        } catch (\Throwable $th) {
+            return false;
+        }
+
+        
     }
 
    public static function obtenerUsuarioPorId($id)

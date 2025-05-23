@@ -47,7 +47,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
     <main class="contenedor">
         <section class="tarjeta-detalle-producto">
             <figure class="contenedor-imagen">
-                <img src="../../img/alojamientos/magata.webp" alt="Isla Magata" style="width: 100%; border-radius: 15px;">
+                <img src="../../img/alojamientos/ferrara.jpg" alt="Isla Magata" style="width: 100%; border-radius: 15px;">
             </figure>
 
             <div class="informacion-producto">
@@ -66,7 +66,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
 
 <br>
                 <p class="precio">
-                    <strong>Precio por noche:</strong> $300.000 COP
+                    <strong>Precio por noche:</strong> $400.000 COP
                 </p>
 
                 <button class="agregar-carrito boton-principal" data-nombre="Apto-Ferrara" data-precio="300000">
