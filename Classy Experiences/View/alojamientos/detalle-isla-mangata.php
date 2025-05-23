@@ -70,7 +70,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
                     <strong>Precio por noche:</strong> $250.000 COP
                 </p>
 
-                <button class="boton-principal agregar-carrito" data-nombre="Isla Magata" data-precio="250000">
+                <button class="agregar-carrito boton-principal" data-nombre="Isla Magata" data-precio="250000">
                     <i class="fa-solid fa-cart-plus"></i> Agregar al carrito
                 </button>
             </div>
@@ -80,6 +80,12 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
     <footer class="contenedor">
         <p>&copy; 2025 Cartagena Luxury. Todos los derechos reservados.</p>
     </footer>
+  <script>
+    var USER_ID = <?php echo isset($_SESSION['id']) ? (int)$_SESSION['id'] : 0; ?>;
+    if (USER_ID > 0) {
+        localStorage.removeItem('carrito_usuario_0');
+    }
+</script>
  <script src="../../JS/carrito.js"></script>
 </body>
 </html>

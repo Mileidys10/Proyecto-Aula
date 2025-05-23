@@ -7,9 +7,9 @@ if (!isset($_SESSION['id'])) {
     echo "Sesión no iniciada. Redirigiendo al login...";
     header("Location: ../View/login.php");
     exit();
-} else {
-    echo "Sesión iniciada. Usuario: " . $_SESSION['nombre'];
-}
+} 
+$usuarioActivo = isset($_SESSION['id']); 
+
 require_once '../../Controller/ReseñaController.php';
 ?>
 
@@ -23,7 +23,7 @@ require_once '../../Controller/ReseñaController.php';
 <body>
     <header>
         <a class="logo" href="../View/index.php">
-            <img src="../Media/classy.png" alt="logo">
+            <img src="/../Classy Experiences/img/classy.png" alt="logo">
             <h2 class="nombredelaempresa">Classy</h2>
         </a>
 
@@ -41,10 +41,7 @@ require_once '../../Controller/ReseñaController.php';
         <i class="fas fa-sign-out-alt"></i>
     </a>
 <?php endif; ?>
-<a href="../../View/carrito.php" class="carrito">
-    <i class="fas fa-shopping-cart"></i>
-    <span class="contador" id="contador-carrito">0</span> 
-</a>
+  
 <a href="../../view/login/perfil.php" title="Perfil">
     <i class="fas fa-user"></i>
 </a>

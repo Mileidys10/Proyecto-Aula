@@ -44,7 +44,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
     <i class="fas fa-shopping-cart"></i>
     <span class="contador" id="contador-carrito">0</span> 
 </a>
-<a href="../view/perfil.php" title="Perfil">
+<a href="../View/login/perfil.php" title="Perfil">
     <i class="fas fa-user"></i>
 </a>
         </nav>
@@ -93,6 +93,12 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
         <p>Email: classyexperiences@gmail.com</p>
         <p>Redes Sociales: @aclassyexperiences</p>
     </footer>
+    <script>
+    var USER_ID = <?php echo isset($_SESSION['id']) ? (int)$_SESSION['id'] : 0; ?>;
+    if (USER_ID > 0) {
+        localStorage.removeItem('carrito_usuario_0');
+    }
+</script>
      <script src="../JS/carrito.js"></script>
 
 </body>

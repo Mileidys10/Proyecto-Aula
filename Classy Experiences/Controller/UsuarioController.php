@@ -146,7 +146,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if ($_SESSION['tipo_usuario'] === 'admin') {
                 header("Location: ../View/admin/admin.php");
-            } else {
+            } elseif ($_SESSION['tipo_usuario'] === 'conductor' || $_SESSION['tipo_usuario'] === 'guia_turistico') {
+            header("Location: ../View/rutas/misrutas.php");
+        } else {
                 header("Location: ../View/index.php");
             }
         } else {

@@ -38,4 +38,9 @@ if ($update->affected_rows > 0) {
 } else {
     echo "⚠️ No se pudo actualizar la contraseña.";
 }
+
+
+
+
+
 ?>

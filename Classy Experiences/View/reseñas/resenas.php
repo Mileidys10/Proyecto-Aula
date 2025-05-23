@@ -41,11 +41,8 @@ $usuarioActivo = isset($_SESSION['id']);
         <i class="fas fa-sign-out-alt"></i>
     </a>
 <?php endif; ?>
-<a href="../../View/carrito.php" class="carrito">
-    <i class="fas fa-shopping-cart"></i>
-    <span class="contador" id="contador-carrito">0</span> 
-</a>
-<a href="../../view/perfil.php" title="Perfil">
+
+<a href="../../view/login/perfil.php" title="Perfil">
     <i class="fas fa-user"></i>
 </a>
         </nav>
@@ -92,6 +89,10 @@ $usuarioActivo = isset($_SESSION['id']);
             <p>&copy; 2024 Classy Experiences. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+
+
+
 </body>
 
 </html>

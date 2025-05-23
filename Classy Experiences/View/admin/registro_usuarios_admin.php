@@ -40,6 +40,7 @@
     <div class="form-group" id="guia_fields" style="display:none;">
         <input type="text" name="especialidad" placeholder="Especialidad">
         <input type="text" name="idiomas" placeholder="Idiomas">
+        
     </div>
     <div class="form-group" id="admin_fields" style="display:none;">
         <input type="text" name="cargo" placeholder="Cargo">

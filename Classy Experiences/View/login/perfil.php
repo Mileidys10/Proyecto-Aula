@@ -1,8 +1,11 @@
-<?php require_once __DIR__ . '/../../Controller/PerfilController.php'; ?>
-<?php require_once __DIR__ . '/../../Config/Conexion.php';
+<?php require_once __DIR__ . '/../../Controller/PerfilController.php'; 
+ require_once __DIR__ . '/../../Config/Conexion.php';
+
+
+
 $conn = Conexion::conectar();
 
-$nombre_usuario = $_SESSION['nombre']; // Asegúrate de tener esto en la sesión
+$nombre_usuario = $_SESSION['nombre']; 
 
 $query = "SELECT comentario, puntuacion, fecha FROM resenas_usuarios WHERE nombre = ?";
 $stmt = $conn->prepare($query);
@@ -38,12 +41,32 @@ echo "<p><strong>Nombre:</strong> {$user['nombre']}</p>";
 echo "<p><strong>Email:</strong> {$user['email']}</p>";
 ?>
 <h2>Cambiar Contraseña</h2>
-<form action="../Controller/cambiar_contraseña.php" method="POST">
+<form action="../../Controller/cambiar_contraseña.php" method="POST">
     <label>Contraseña Actual:</label>
     <input type="password" name="actual_pass" required><br>
     
     <label>Nueva Contraseña:</label>
     <input type="password" name="nueva_pass" required><br>
+    
+    <button type="submit">Actualizar</button>
+</form>
+<h2>Cambiar Correo</h2>
+<form action="../../Controller/cambiar_gmail.php" method="POST">
+    <label>Correo Actual:</label>
+    <input type="text" name="actual_correo" required><br>
+    
+    <label>Nuevo Correo:</label>
+    <input type="text" name="nuevo_correo" required><br>
+    
+    <button type="submit">Actualizar</button>
+</form>
+<h2>Cambiar Nombre</h2>
+<form action="../../Controller/cambiar_nombreController.php" method="POST">
+    <label>Nombre Actual:</label>
+    <input type="text" name="actual_nombre" required><br>
+    
+    <label>Nuevo Nombre :</label>
+    <input type="text" name="nuevo_nombre" required><br>
     
     <button type="submit">Actualizar</button>
 </form>

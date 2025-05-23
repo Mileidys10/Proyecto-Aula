@@ -31,7 +31,9 @@
         </form>
     </div>
     <script>
-    // Solo ejecuta si hay carrito de visitante
+    var USER_ID = <?php echo isset($_SESSION['id']) ? (int)$_SESSION['id'] : 0; ?>;
+</script>
+    <script>
     const visitanteKey = 'carrito_usuario_0';
     const userId = <?php echo (int)$_SESSION['id']; ?>;
     const userKey = `carrito_usuario_${userId}`;

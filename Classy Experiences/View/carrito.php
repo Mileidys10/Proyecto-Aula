@@ -24,12 +24,47 @@
         <button onclick="descargarPDF()" style="margin-top: 20px; background-color: #a65b4b; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer;">Descargar PDF</button>
     </div>
 
-    <script>
+    
+    
+    <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
+ <script>
         // Define USER_ID para el JS
         var USER_ID = <?php echo isset($_SESSION['id']) ? (int)$_SESSION['id'] : 0; ?>;
     </script>
-    <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
     <script src="../JS/carrito.js"></script>
     <script src="../JS/factura.js"></script>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Calcula el total dinámicamente desde el carrito
+    function getCarrito() {
+        let key = 'carrito_usuario_' + (typeof USER_ID !== 'undefined' ? USER_ID : 0);
+        return JSON.parse(localStorage.getItem(key)) || [];
+    }
+    function getTotal() {
+        let carrito = getCarrito();
+        return carrito.reduce((sum, item) => sum + (parseFloat(item.precio) || 0), 0);
+    }
+
+    if (window.paypal) {
+        paypal.Buttons({
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: getTotal().toString() // Total dinámico
+                        }
+                    }]
+                });
+            },
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    alert('Pago completado por ' + details.payer.name.given_name);
+                });
+            }
+        }).render('#paypal-button-container');
+    }
+});
+</script>
+
 </body>
 </html>

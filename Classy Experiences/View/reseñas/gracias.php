@@ -13,7 +13,8 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../Css/estilo.css">
+    <link rel="stylesheet" href="/Css/estilo.css">
+  
     <title>Gracias por tu reseña</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
 
@@ -22,7 +23,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
 
 <header>
         <a class="logo" href="../View/index.php">
-            <img src="../Media/classy.png" alt="logo">
+            <img src="/../Classy Experiences/img/classy.png" alt="logo">
             <h2 class="nombredelaempresa">Classy</h2>
         </a>
 
@@ -40,10 +41,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
         <i class="fas fa-sign-out-alt"></i>
     </a>
 <?php endif; ?>
-<a href="../../View/carrito.php" class="carrito">
-    <i class="fas fa-shopping-cart"></i>
-    <span class="contador" id="contador-carrito">0</span> 
-</a>
+
 <a href="../../view/perfil.php" title="Perfil">
     <i class="fas fa-user"></i>
 </a>
