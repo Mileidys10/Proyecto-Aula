@@ -37,7 +37,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
     </a>
 <?php endif; ?>
 
-<a href="../../view/perfil.php" title="Perfil">
+<a href="../../View/login/perfil.php" title="Perfil">
     <i class="fas fa-user"></i>
 </a>
         </nav>

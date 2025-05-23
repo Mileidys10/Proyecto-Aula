@@ -4,8 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
-    <link rel="stylesheet" href="../Css/login.css">
+    <link rel="stylesheet" href="../../Css/registrousuario.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+    
 </head>
+    <header>
+        <div class="logo">
+            <img src="../../img/classy.png" alt="Logo"> 
+            <span>Panel de Administración</span>
+        </div>
+        <nav>
+            <a href="admin.php">Inicio</a>
+            
+            <a href="../admin/mostrar_usuario.php">mostrar usuarios</a>
+            <a href="../../View/rutas/adminRutas.php">Rutas</a>
+       
+
+        </nav>
+    </header>
+
 <body>
     <div class="form">
         <form action="../../Controller/UsuarioController.php" method="post">
@@ -48,9 +65,10 @@
     <button class="btn font-weight-bold" name="submit">Registrate ahora</button>
     <p>Desea regresar atras?<a href="../admin/admin.php">Pagina Principal Admin</a></p>
 </form>
-    </div>
     <button class="btn" id="guardarCambios">Guardar Cambios</button>
     <a href="../admin/admin.php" class="btn">Volver Atrás</a>
     <script src="../../JS/registro.js"></script>
+    </div>
+
 </body>
 </html>

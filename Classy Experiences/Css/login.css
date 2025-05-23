@@ -96,6 +96,8 @@ p a:hover {
     color: #552f27;
 }
 
+
+
 /* Responsividad */
 @media (max-width: 600px) {
     .form {

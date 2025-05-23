@@ -13,7 +13,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Css/estilo.css">
+    <link rel="stylesheet" href="../../Css/resenar.css">
   
     <title>Gracias por tu reseña</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
@@ -54,7 +54,7 @@ $usuarioActivo = isset($_SESSION['id']); // Verifica si hay un usuario activo
 <p>A continuación serás redirigido a la pagina de reseñas.</p>
 
         </h3>
-        <button><a href="../View/index.php">Volver al inicio</a></button>
+        <button><a href="../index.php">Volver al inicio</a></button>
     </main>
 
 </body>

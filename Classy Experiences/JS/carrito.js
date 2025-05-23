@@ -60,7 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (botones.length > 0) {
         botones.forEach(btn => {
             btn.addEventListener('click', () => {
-             
                 const nombre = btn.getAttribute('data-nombre');
                 const precio = parseFloat(btn.getAttribute('data-precio'));
                 const servicio = { nombre, precio };
@@ -79,4 +78,152 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // Simular pago
+    const btnSimular = document.getElementById('btn-simular-pago');
+    if (btnSimular) {
+        btnSimular.addEventListener('click', () => {
+            let carrito = getCarrito();
+            if (carrito.length === 0) {
+                alert('El carrito está vacío');
+                return;
+            }
+
+            const nombre = prompt("Nombre del cliente para la factura:", "Cliente Simulado");
+            if (!nombre) {
+                alert("Nombre requerido");
+                return;
+            }
+
+            const fecha = new Date().toLocaleString();
+
+            const listaFactura = document.getElementById('factura-items');
+            listaFactura.innerHTML = '';
+            let total = 0;
+
+            carrito.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.nombre} - $${item.precio.toFixed(2)}`;
+                listaFactura.appendChild(li);
+                total += item.precio;
+            });
+
+            document.getElementById('factura-nombre').textContent = `Cliente: ${nombre}`;
+            document.getElementById('factura-fecha').textContent = `Fecha: ${fecha}`;
+            document.getElementById('factura-total').textContent = `Total pagado: $${total.toFixed(2)}`;
+            document.getElementById('factura').style.display = 'block';
+
+            fetch('../controller/guardar_factura.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    nombre_cliente: nombre,
+                    items: carrito.map(item => ({
+                        id: item.id || 0,
+                        nombre: item.nombre,
+                        precio: item.precio,
+                        cantidad: item.cantidad || 1
+                    }))
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Factura guardada correctamente (simulada)');
+                } else {
+                    console.error('Error al guardar la factura:', data.error);
+                    alert('Error al guardar la factura.');
+                }
+            })
+            .catch(error => {
+                console.error('Error en la conexión:', error);
+                alert('Error de conexión al guardar factura.');
+            });
+
+            localStorage.removeItem(carritoKey);
+            renderCarrito();
+            renderListaCarrito();
+        });
+    }
+
+    // PayPal
+    if (window.paypal) {
+        paypal.Buttons({
+            createOrder: function (data, actions) {
+                let carrito = getCarrito();
+                let total = carrito.reduce((sum, item) => sum + item.precio, 0);
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: total.toFixed(2)
+                        }
+                    }]
+                });
+            },
+            onApprove: function (data, actions) {
+                let carrito = getCarrito();
+                return actions.order.capture().then(function (details) {
+                    alert('Pago completado por ' + details.payer.name.given_name);
+
+                    const nombre = details.payer.name.given_name + ' ' + details.payer.name.surname;
+                    const fecha = new Date().toLocaleString();
+
+                    const listaFactura = document.getElementById('factura-items');
+                    listaFactura.innerHTML = '';
+                    let total = 0;
+
+                    carrito.forEach(item => {
+                        const li = document.createElement('li');
+                        li.textContent = `${item.nombre} - $${item.precio.toFixed(2)}`;
+                        listaFactura.appendChild(li);
+                        total += item.precio;
+                    });
+
+                    document.getElementById('factura-nombre').textContent = `Cliente: ${nombre}`;
+                    document.getElementById('factura-fecha').textContent = `Fecha: ${fecha}`;
+                    document.getElementById('factura-total').textContent = `Total pagado: $${total.toFixed(2)}`;
+                    document.getElementById('factura').style.display = 'block';
+
+                    fetch('../controller/guardar_factura.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            nombre_cliente: nombre,
+                            items: carrito.map(item => ({
+                                id: item.id || 0,
+                                nombre: item.nombre,
+                                precio: item.precio,
+                                cantidad: item.cantidad || 1
+                            }))
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert('Factura guardada correctamente');
+                        } else {
+                            console.error('Error al guardar la factura:', data.error);
+                            alert('Error al guardar la factura.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error en la conexión:', error);
+                        alert('Error de conexión al guardar factura.');
+                    });
+
+                    localStorage.removeItem(carritoKey);
+                    renderCarrito();
+                    renderListaCarrito();
+                });
+            },
+            onCancel: function (data) {
+                alert('El pago fue cancelado');
+            }
+        }).render('#paypal-button-container');
+    }
+
 });

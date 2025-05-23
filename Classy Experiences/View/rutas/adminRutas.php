@@ -1,3 +1,4 @@
+
 <?php
 // Verifica si la sesión está iniciada
 if (session_status() === PHP_SESSION_NONE) {
@@ -10,19 +11,75 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo_usuario'] !== 'admin') {
     header("Location: login.php?msg=¡Debes iniciar sesión como administrador!");
     exit;
 }
+
+// Asignar el nombre del admin a una variable para mostrarlo
+$admin_nombre = $_SESSION['nombre']; 
+$usuarioActivo = true; // Esto habilita el botón de cerrar sesión
 ?>
 
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD DE RUTAS</title>
+    <title>Panel de Administración</title>
+    <link rel="stylesheet" href="../../Css/adminrutas.css"> 
+    <link rel="stylesheet" href="../../css/dashboard.css">
+    
 </head>
+
 <body>
-            <a href="../../View/admin/admin.php">Home</a>
-            <a href="../rutas/agregarRuta.php">Agregar Ruta</a>
-            <a href="../rutas/mostrarRutas.php">Mostrar Rutas</a>
-            <a href="../rutas/adminRutas.php">Inicio</a>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="../../img/classy.png" alt="Logo"> 
+            <span>Panel de Administración</span>
+        </div>
+        <nav>
+            <a href="../admin/admin.php">Inicio</a>
+            <a href="../admin/registro_usuarios_admin.php">Registrar Usuario</a>
+            <a href="../admin/mostrar_usuario.php">mostrar usuarios</a>
+
+
+
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <h1>Bienvenido, <?php echo htmlspecialchars($admin_nombre); ?></h1>
+        <p>Desde este panel serás redirigido a diferentes opciones de gestión de rutas.</p>
+    </section>
+
+
+    <!-- Servicios -->
+    <section id="servicios">
+        <div class="container servicios">
+            <div class="cartas">
+                <a href="../rutas/agregarRuta.php">
+                    <h3>Agregar Ruta</h3>
+                    <p>Crea una nueva ruta.</p>
+                </a>
+            </div>
+            <div class="cartas">
+                <a href="../rutas/mostrarRutas.php">
+                    <h3>Mostrar Rutas</h3>
+                    <p>Visualiza un listado de todas las rutas actuales.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <img src="../../img/classy.png" alt="creado por rafaxd" style="width:40px;">
+        </div>
+    </footer>
+
 </body>
+
 </html>

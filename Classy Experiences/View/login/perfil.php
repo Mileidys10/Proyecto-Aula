@@ -1,7 +1,12 @@
-<?php require_once __DIR__ . '/../../Controller/PerfilController.php'; 
- require_once __DIR__ . '/../../Config/Conexion.php';
 
+<?php
+require_once __DIR__ . '/../../Controller/PerfilController.php'; 
+require_once __DIR__ . '/../../Config/Conexion.php';
 
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+$usuarioActivo = isset($_SESSION['id']);
 
 $conn = Conexion::conectar();
 
@@ -12,8 +17,45 @@ $stmt = $conn->prepare($query);
 $stmt->bind_param("s", $nombre_usuario);
 $stmt->execute();
 $result = $stmt->get_result();
+?>
+<link rel="stylesheet" href="../../Css/perfil.css">
+<link rel="stylesheet" href="../../Css/index-o.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css"
+    integrity="sha512-9xKTRVabjVeZmc+GUW8GgSmcREDunMM+Dt/GrzchfN8tkwHizc5RP4Ok/MXFFy5rIjJjzhndFScTceq5e6GvVQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
 
+<header>
+    <a class="logo" href="../index.php">
+        <img src="../../img/classy.png" alt="logo">
+        <h2 class="nombredelaempresa">Classy</h2>
+    </a>
+    <nav>
+        <a href="../atencionCliente/contacto.php">Atención al cliente</a>
+        <a href="../index.php">Home</a>
+        <a href="../servicios.php">Servicios</a>
+        <a href="../conocenos.php">Conócenos</a>
+        <a href="../redes.php">Redes Sociales</a>
+        <a href="../reseñas/resenas.php">Reseñas</a>
+        <?php if (!$usuarioActivo): ?>
+            <a href="../login/login.php">Iniciar Sesion</a>
+        <?php else: ?>
+            <a href="../../Controller/LogoutController.php" title="Cerrar sesión">
+                <i class="fas fa-sign-out-alt"></i>
+            </a>
+        <?php endif; ?>
+        <a href="../carrito.php" class="carrito">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="contador" id="contador-carrito">0</span> 
+        </a>
+        <a href="perfil.php" title="Perfil">
+            <i class="fas fa-user"></i>
+        </a>
+    </nav>
+</header>
 
+<div class="perfil-container">
+<?php
 echo "<h2>Mis Reseñas</h2>";
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
@@ -24,8 +66,7 @@ if ($result->num_rows > 0) {
 } else {
     echo "<p>No has dejado reseñas aún.</p>";
 }
-?>
-<?php
+
 $id_usuario = $_SESSION['id']; // Asegúrate de que el ID esté en la sesión
 $query = "SELECT nombre, email, user_type, fecha_registro FROM usuarios WHERE id = ?";
 $stmt = $conn->prepare($query);
@@ -70,3 +111,4 @@ echo "<p><strong>Email:</strong> {$user['email']}</p>";
     
     <button type="submit">Actualizar</button>
 </form>
+</div>

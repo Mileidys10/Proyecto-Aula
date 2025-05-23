@@ -21,7 +21,7 @@ if (isset($_GET['tipo']) && $_GET['tipo'] !== '') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Usuarios</title>
-    <link rel="stylesheet" href="../../Css/login.css">
+    <link rel="stylesheet" href="../../Css/dashboard.css">
     <style>
         table {
             width: 100%;
@@ -65,7 +65,26 @@ if (isset($_GET['tipo']) && $_GET['tipo'] !== '') {
     </style>
 </head>
 
+    <header>
+        <div class="logo">
+            <img src="../../img/classy.png" alt="Logo"> 
+            <span>Panel de Administración</span>
+        </div>
+        <nav>
+            <a href="admin.php">Inicio</a>
+            <a href="../admin/registro_usuarios_admin.php">Registrar Usuario</a>
+            
+            <a href="../../View/rutas/adminRutas.php">Rutas</a>
+
+
+        </nav>
+    </header>
+
 <body>
+
+<main class="main-dashboard">
+    
+
     <h1>Editar Usuarios</h1>  
     <form method="GET" style="margin-bottom: 15px;">
     <label for="tipo">Filtrar por tipo de usuario:</label>
@@ -115,6 +134,7 @@ if (isset($_GET['tipo']) && $_GET['tipo'] !== '') {
     <button class="btn" id="guardarCambios">Guardar Cambios</button>
    <br><br> <a href="../admin/admin.php" class="btn">Volver Atrás</a>
     <script src="../../JS/usuarios.js"></script>
+    </main>
 </body>
 
 </html>

@@ -6,7 +6,7 @@ require_once '../../Model/CRUD/crudReseñas.php';
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-$usuarioActivo = isset($_SESSION['id']); 
+$usuarioActivo = isset($_SESSION['id']);
 
 
 ?>
@@ -23,28 +23,28 @@ $usuarioActivo = isset($_SESSION['id']);
 
 <body>
     <header>
-        <a class="logo" href="../View/index.php">
+        <a class="logo" href="../index.php">
             <img src="../../img/classy.png" alt="logo">
             <h2 class="nombredelaempresa">Classy</h2>
         </a>
-               <nav>
+        <nav>
             <a href="../../View/atencionCliente/contacto.php">Atención al cliente</a>
             <a href="../../View/index.php">Home</a>
             <a href="../../View/servicios.php">Servicios</a>
             <a href="../../View/conocenos.php">Conócenos</a>
             <a href="../../View/redes.php">Redes Sociales</a>
             <a href="../../View/reseñas/resenas.php">Reseñas</a>
-                     <?php if (!$usuarioActivo): ?>
-    <a href="../../View/login/login.php">Iniciar Sesion</a>
-<?php else: ?>
-    <a href="../../Controller/LogoutController.php" title="Cerrar sesión">
-        <i class="fas fa-sign-out-alt"></i>
-    </a>
-<?php endif; ?>
+            <?php if (!$usuarioActivo): ?>
+                <a href="../../View/login/login.php">Iniciar Sesion</a>
+            <?php else: ?>
+                <a href="../../Controller/LogoutController.php" title="Cerrar sesión">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            <?php endif; ?>
 
-<a href="../../view/login/perfil.php" title="Perfil">
-    <i class="fas fa-user"></i>
-</a>
+            <a href="../../view/login/perfil.php" title="Perfil">
+                <i class="fas fa-user"></i>
+            </a>
         </nav>
     </header>
 
@@ -53,7 +53,11 @@ $usuarioActivo = isset($_SESSION['id']);
             <h1>¡Comparte tu experiencia con nosotros!</h1>
             <p>Queremos saber lo que piensas sobre nuestros servicios.</p>
             <div class="reseñar-boton">
-                <a href="../reseñas/resenar.php">Agregar Reseña</a>
+                <?php if (!$usuarioActivo): ?>
+                    <a href="../login/login.php">Agregar Reseña</a>
+                <?php else: ?>
+                    <a href="resenar.php">Agregar Reseña</a>
+                <?php endif; ?>
             </div>
         </section>
 

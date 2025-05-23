@@ -18,12 +18,12 @@ require_once '../../Controller/ReseñaController.php';
 <head>
     <meta charset="UTF-8">
     <title>Agregar Reseña</title>
-    <link rel="stylesheet" href="../../Css/resenas.css">
+    <link rel="stylesheet" href="../../Css/resenar.css">
 </head>
 <body>
     <header>
         <a class="logo" href="../View/index.php">
-            <img src="/../Classy Experiences/img/classy.png" alt="logo">
+            <img src="/../classy/img/classy.png" alt="logo">
             <h2 class="nombredelaempresa">Classy</h2>
         </a>
 

@@ -1,0 +1,94 @@
+/* ==== ESTILO PARA registro_usuarios_admin.php (Dashboard Style) ==== */
+
+.form {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    padding: 40px 32px 32px 32px;
+    max-width: 420px;
+    width: 100%;
+    margin: 40px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form h2 {
+    color: #222;
+    margin-bottom: 28px;
+    font-size: 2em;
+    letter-spacing: 1px;
+}
+
+.form-group {
+    width: 100%;
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-control,
+.form-group input,
+.form-group select {
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #bbb;
+    font-size: 1em;
+    background: #f9f9f9;
+    color: #222;
+    margin-top: 6px;
+    transition: border 0.2s;
+}
+
+.form-control:focus,
+.form-group input:focus,
+.form-group select:focus {
+    border: 1.5px solid #111;
+    outline: none;
+}
+
+.btn {
+    padding: 10px 22px;
+    background: #111;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.2s;
+}
+
+.btn:hover {
+    background: #ff6347;
+}
+
+.form p {
+    margin-top: 18px;
+    font-size: 1em;
+    color: #555;
+}
+
+.form p a {
+    color: #ff6347;
+    text-decoration: underline;
+    margin-left: 6px;
+}
+
+/* Para los campos adicionales según tipo de usuario */
+#conductor_fields input,
+#guia_fields input,
+#admin_fields input {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+    .form {
+        padding: 18px 4vw;
+        max-width: 98vw;
+    }
+    .form h2 {
+        font-size: 1.2em;
+    }
+}

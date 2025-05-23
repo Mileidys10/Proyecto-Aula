@@ -12,10 +12,31 @@ $guias = crudUsuario::getUsuariosPorTipo('guia_turistico');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agregar Ruta</title>
+    <link rel="stylesheet" href="../../Css/adminrutas.css">
 </head>
 
 <body>
-    <form action="/../Classy Experiences/Controller/RutaController.php" method="post">
+
+
+    <header>
+        <div class="logo">
+            <img src="../../img/classy.png" alt="Logo"> 
+            <span>Panel de Administración</span>
+        </div>
+        <nav>
+            <a href="admin.php">Inicio</a>
+
+            <a href="../../View/rutas/adminRutas.php">Rutas</a>
+  
+
+        </nav>
+    </header>
+
+
+    <form action="../../Controller/RutaController.php" method="post" class="form-agregar-ruta">
+    <!-- ...campos... -->
+
+    
         <input type="hidden" name="accion" value="agregar">
         <h2>Agregar Ruta</h2>
         <p class="msg"></p>

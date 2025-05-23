@@ -14,6 +14,16 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo_usuario'] !== 'admin') {
 // Asignar el nombre del admin a una variable para mostrarlo
 $admin_nombre = $_SESSION['nombre']; 
 $usuarioActivo = true; // Esto habilita el botón de cerrar sesión
+
+
+
+require_once '../../Model/CRUD/crudEstadisticas.php';
+
+$mesActual = date('n'); // sin cero inicial
+$anioActual = date('Y');
+
+$reservasMes = crudEstadisticas::reservasMes($mesActual, $anioActual);
+$ingresosMes = crudEstadisticas::ingresosMes($mesActual, $anioActual);
 ?>
 
 
@@ -35,14 +45,16 @@ $usuarioActivo = true; // Esto habilita el botón de cerrar sesión
         <div class="logo">
             <img src="../../img/classy.png" alt="Logo"> 
             <span>Panel de Administración</span>
+            
         </div>
         <nav>
+            <a href="../index.php">Sitio Web Classy</a>
             <a href="admin.php">Inicio</a>
-            <a href="../admin/registro_usuarios_admin.php">Registro Usuarios</a>
+            <a href="../admin/registro_usuarios_admin.php">Registrar Usuario</a>
             <a href="../admin/mostrar_usuario.php">mostrar usuarios</a>
             <a href="../../View/rutas/adminRutas.php">Rutas</a>
             <?php if ($usuarioActivo): ?>
-          <a href="/Classy Experiences/Controller/LogoutController.php">Cerrar sesión</a>
+          <a href="../../Controller/LogoutController.php">Cerrar sesión</a>
 <?php endif; ?>
 
         </nav>
@@ -56,29 +68,24 @@ $usuarioActivo = true; // Esto habilita el botón de cerrar sesión
 
     <!-- Resumen General -->
     <section id="whoareus">
-        <div class="container">
-            <h2>Resumen General</h2>
-            <div class="summary-card">
-                <p>Total de servicios publicados: <strong>12</strong></p>
-            </div>
-            <div class="summary-card">
-                <p>Reservas este mes: <strong>38</strong></p>
-            </div>
-            <div class="summary-card">
-                <p>Ingresos aproximados: <strong>$4,200,000 COP</strong></p>
-            </div>
+    <div class="container">
+        <h2>Resumen General</h2>
+        <div class="summary-card">
+            <p>Total de servicios publicados: <strong>12</strong></p>
         </div>
-    </section>
+        <div class="summary-card">
+            <p>Reservas este mes: <strong><?= $reservasMes ?></strong></p>
+        </div>
+        <div class="summary-card">
+            <p>Ingresos aproximados: <strong>$<?= number_format($ingresosMes, 0, ',', '.') ?></strong> cop</p>
+        </div>
+    </div>
+</section>
 
     <!-- Servicios -->
     <section id="servicios">
         <div class="container servicios">
-            <div class="cartas">
-                <a href="agregar_servicio.php">
-                    <h3>Agregar Servicio</h3>
-                    <p>Crea un nuevo tour, bote o actividad.</p>
-                </a>
-            </div>
+
             <div class="cartas">
                 <a href="estadisticas.php">
                     <h3>Ver Estadísticas</h3>
@@ -87,8 +94,8 @@ $usuarioActivo = true; // Esto habilita el botón de cerrar sesión
             </div>
             <div class="cartas">
                 <a href="reservas.php">
-                    <h3>Ver Reservas</h3>
-                    <p>Gestiona las reservas recientes.</p>
+                    <h3>Ver Facturas</h3>
+                    <p>Revisa las facturas.</p>
                 </a>
             </div>
         </div>
@@ -97,7 +104,7 @@ $usuarioActivo = true; // Esto habilita el botón de cerrar sesión
     <!-- Footer -->
     <footer>
         <div class="container">
-            <img src="../img/classy.png" alt="Pie de página">
+            <img src="../../img/classy.png" alt="Creado por Rafa">
         </div>
     </footer>
 

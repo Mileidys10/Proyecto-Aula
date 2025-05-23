@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    text-decoration: none;
+}
+
+html, body {
+    height: 100%;
+    min-height: 100%;
+}
+
+body {
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin-top: 80px; /* Mantén esto si tu header es fijo */
+}
+
+main, .main-content, #main, #servicios, #hero {
+    flex: 1 0 auto;
+}
+
+/* Header */
+header {
+    background-color: #111;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+header nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #ff6347; /* Cambié el color del hover a un color llamativo */
+}
+
+/* El footer debe estar dentro del body */
+footer {
+    margin-top: auto;
+    background: #111;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+}
+
+/* ==== ESTILO PARA agregarRuta.php (Dashboard Style) ==== */
+
+.form-agregar-ruta {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    padding: 40px 32px 32px 32px;
+    max-width: 420px;
+    width: 100%;
+    margin: 40px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-agregar-ruta h2 {
+    color: #222;
+    margin-bottom: 28px;
+    font-size: 2em;
+    letter-spacing: 1px;
+}
+
+.form-agregar-ruta label {
+    font-weight: bold;
+    color: #333;
+    margin-top: 16px;
+    margin-bottom: 6px;
+    align-self: flex-start;
+}
+
+.form-agregar-ruta input[type="text"],
+.form-agregar-ruta input[type="date"],
+.form-agregar-ruta select {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #bbb;
+    font-size: 1em;
+    background: #f9f9f9;
+    color: #222;
+    margin-bottom: 14px;
+    transition: border 0.2s;
+}
+
+.form-agregar-ruta input[type="text"]:focus,
+.form-agregar-ruta input[type="date"]:focus,
+.form-agregar-ruta select:focus {
+    border: 1.5px solid #111;
+    outline: none;
+}
+
+.form-agregar-ruta select {
+    cursor: pointer;
+}
+
+.form-agregar-ruta button[type="submit"] {
+    padding: 10px 22px;
+    background: #111;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 18px;
+    transition: background 0.2s;
+}
+
+.form-agregar-ruta button[type="submit"]:hover {
+    background: #ff6347;
+}
+
+.form-agregar-ruta .msg {
+    color: #ff6347;
+    margin-bottom: 10px;
+    font-size: 1em;
+    min-height: 20px;
+}
+
+.form-agregar-ruta p {
+    margin-top: 18px;
+    font-size: 1em;
+    color: #555;
+}
+
+.form-agregar-ruta p a {
+    color: #ff6347;
+    text-decoration: underline;
+    margin-left: 6px;
+}
+
+@media (max-width: 600px) {
+    .form-agregar-ruta {
+        padding: 18px 4vw;
+        max-width: 98vw;
+    }
+    .form-agregar-ruta h2 {
+        font-size: 1.2em;
+    }
+}
